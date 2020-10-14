@@ -7,9 +7,12 @@ These files are big and expensive to process. This code takes DICOM files as inp
 I created replicated the code across four files, with different ranges to make it run faster.
 
 To submit on SCC:
+
+```
 qsub batch1.qsub
 qsub batch2.qsub
 qsub batch3.qsub
 qsub batch4.qsub
+```
 
 This splits the data across 4 CPU batch jobs.
