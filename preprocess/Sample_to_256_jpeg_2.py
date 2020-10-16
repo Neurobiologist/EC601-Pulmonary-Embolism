@@ -1,32 +1,18 @@
 # -*- coding: utf-8 -*-
 from __future__ import division
-import argparse
-import torch
-import torch.nn.functional as F
-import torchvision.datasets as dset
-import torchvision.models as models
-import torchvision.transforms as T
-import torchvision.transforms as transforms
-import pandas as pd
 import os
 import pydicom
 import numpy as np
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import glob
 import os
 from os import listdir
-from matplotlib import pyplot as plt
 import numpy as np
-import pandas as pd
-from torch.utils.data import TensorDataset, DataLoader,Dataset
-from skimage.color import gray2rgb
 import functools
-from tqdm.auto import tqdm
 import pydicom
-import seaborn as sns
-import scipy
 import PIL
 import json
+import pandas as pd
+import torchvision.transforms as T
 
 data_dir = '/projectnb/ece601/kaggle-pulmonary-embolism/rsna-str-pulmonary-embolism-detection/'
 train_csv = data_dir + 'train.csv'
