@@ -73,8 +73,8 @@ train_dir = data_dir + 'train/'
 resnext50 = models.resnext50_32x4d(pretrained=True, progress=True)
 
 # use values from sample image (but ideally this should be values from entire dataset)
-global_mean = 111.6126708984375
-global_std = 79.95233637352047
+global_mean = 0.5
+global_std = 0.25
 
 transform=T.Compose([T.Resize(256),
                      T.RandomCrop(224),
@@ -125,7 +125,7 @@ print('Validation split:')
 b = transformed_dataset.pedataframe['pe_present_on_image'][val_indices]
 print(b.value_counts(normalize=True))
 
-epochs = 3
+epochs = 2
 learning_rate = 0.1
 gamma = 0.5
 momentum = 0.9

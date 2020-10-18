@@ -9,7 +9,7 @@
 
 cp /projectnb/ece601/kaggle-pulmonary-embolism/rsna-str-pulmonary-embolism-detection-265-jpeg.zip /scratch
 cd /scratch
-unzip -q rsna-str-pulmonary-embolism-detection-265-jpeg.zip
+unzip -q -o rsna-str-pulmonary-embolism-detection-265-jpeg.zip
 cd /projectnb/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/ResNeXt2D50
 
 module load python3
