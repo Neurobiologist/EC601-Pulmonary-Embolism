@@ -1,0 +1,1 @@
+python test_from_dicom.py --input_study /projectnb/ece601/kaggle-pulmonary-embolism/rsna-str-pulmonary-embolism-detection/test/00268ff88746/75d23269adbd --series_description CTPA --ckpt_path /projectnb/ece601/kaggle-pulmonary-embolism/meganmp/ckpts/penet_best.pth.tar --device cuda --gpu_ids 0
