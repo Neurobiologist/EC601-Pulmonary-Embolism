@@ -1,4 +1,4 @@
-# EC601-Project03
+# EC601-PENet
 
 ## Introduction
 This project consists of (1) preprocessing steps from Kaggle notebooks and (2) adaptations to the PENet software to run our own data on the pre-trained model.
@@ -18,12 +18,10 @@ Returns a probability of PE in that study. As of 10/19, we can successfully run 
 1. Modify paths in <code>get_cams.sh</code> to <code>data_dir</code>, <code>ckpt_pth</code>, and <code>cam_dir</code>
 2. <code>sh get_cams.sh</code>
 
-## Kaggle NB Preprocessing
-Using the available Kaggle NB, we've done the following:
+**To test the model:**
 
-* Loading the CT scans per patient and probing the structure of the data
-* Understanding Digital Imaging and Communications in Medicine (DICOM) files, Hounsfield units, CT windows, and CT levels; why it's important to concentrate 256 shades of grey into a reasonable range of densities based on our target tissue because our eyes can only detect a 6% difference in greyscale[[1]](#1)
-* 
+1. Modify paths in <code>test.sh</code> to <code>data_dir</code>, <code>ckpt_pth</code>, and <code>results</code>
+2. <code>sh test.sh</code>
 
-## References
-<a id="1">[1]</a> https://www.youtube.com/watch?v=KZld-5W99cI
+**To train the model:**
+*Currently consulting with corresponding author and co-author regarding the generation of a necessary pkl file. Updates TBD*
