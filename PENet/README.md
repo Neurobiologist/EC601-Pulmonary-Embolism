@@ -24,4 +24,5 @@ Returns a probability of PE in that study. As of 10/19, we can successfully run 
 2. <code>sh test.sh</code>
 
 **To train the model:**
-*Currently consulting with corresponding author and co-author regarding the generation of a necessary pkl file. Updates TBD*
+
+*Currently consulting with corresponding author and co-author regarding the generation of a necessary pkl file. Updates forthcoming.*
