@@ -9,6 +9,10 @@ Our data will not work on the unmodified files in the PENet Github repo. Necessa
 **Set up environment:**
 1. Run <code>conda env create -f environment.yml</code>
 
+*N.B.: This might default to your home directory on the SCC. If so, try* <code>conda env create -f environment.yml -p \<project-dir\></code>
+
+
+
 **To run on dicom files:**
 
 1. Modify paths in <code>test_from_dicom.sh</code> to <code>input_study</code> and <code>ckpt_path</code>
