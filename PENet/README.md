@@ -6,6 +6,9 @@ This project consists of (1) preprocessing steps from Kaggle notebooks and (2) a
 ## PENet Instructions
 Our data will not work on the unmodified files in the PENet Github repo. Necessary changes to the <code>environment.yml</code> and <code>requirements.txt</code> in this repository are necessary to run any of the following scripts so use the modified versions when setting up the environment. The checkpoints for the trained model are in <code>/projectnb/ec601/kaggle-pulmonary-embolism/meganmp/ckpts</code>.
 
+**Set up environment:**
+1. Run <code>conda env create -f environment.yml</code>
+
 **To run on dicom files:**
 
 1. Modify paths in <code>test_from_dicom.sh</code> to <code>input_study</code> and <code>ckpt_path</code>
