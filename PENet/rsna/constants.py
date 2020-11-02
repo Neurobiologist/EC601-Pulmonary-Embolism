@@ -1,6 +1,6 @@
 from pathlib import Path
 
-RSNA_DIR = Path('/data4/rsna')
+RSNA_DIR = Path('/projectnb/ece601/kaggle-pulmonary-embolism/rsna-str-pulmonary-embolism-detection')
 TRAIN_DIR = RSNA_DIR / 'train'
 TEST_DIR = RSNA_DIR / 'test'
 
