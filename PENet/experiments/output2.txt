@@ -1,0 +1,149 @@
+[cliao25@scc-c14 ~]$ cd /projectnb/ece601/
+[cliao25@scc-c14 ece601]$ cd kaggle-pulmonary-embolism/cliao25/
+[cliao25@scc-c14 cliao25]$ ls
+CIFAR10_DATA		  dog.jpg   phrasebooks
+EC601-Pulmonary-Embolism  etc	    plugins
+ResNeXt.pytorch		  include   pytorch_vision_resnext.ipynb
+ResNeXt_experiment.ipynb  kite.png  qml
+ResNeXt_train.ipynb	  lib	    share
+bin			  libexec   ssl
+compiler_compat		  man	    translations
+conda-meta		  mkspecs   var
+doc			  penet     x86_64-conda_cos6-linux-gnu
+[cliao25@scc-c14 cliao25]$ cd EC601-Pulmonary-Embolism 
+[cliao25@scc-c14 EC601-Pulmonary-Embolism]$ ls
+Images			  ResNeXt_train.ipynb	      log.txt
+Literature Review.pdf	  ResNeXt_train_subset.ipynb  preprocess
+PENet			  Sprint #1_ 10_05_2020.pdf   python_nb_preprocess
+README.md		  Sprint #2_ 10_19_20.pdf     snapshots
+ResNeXt2D50		  VGG
+ResNeXt_experiment.ipynb  ckpts
+[cliao25@scc-c14 EC601-Pulmonary-Embolism]$ cd PENet/
+[cliao25@scc-c14 PENet]$ ls
+README.md	 get_cams.sh		  preprocess_npy.o557447     test_kaggle.sh
+args		 img			  requirements.txt	     train.py
+cams		 intermountain		  run_test_intermountain.sh  train.sh
+ct		 log.txt		  saver			     train_cliao25.py
+ctpe		 logger			  scripts		     train_experiment.ipynb
+data_loader	 models			  snapshots		     train_logs
+datasets	 output.txt		  test.py		     util
+environment.yml  playing_with_data.ipynb  test.sh
+evaluator	 preprocess.py		  test_from_dicom.py
+get_cams.py	 preprocess.qsub	  test_from_dicom.sh
+[cliao25@scc-c14 PENet]$ 
+[cliao25@scc-c14 PENet]$ 
+[cliao25@scc-c14 PENet]$ 
+[cliao25@scc-c14 PENet]$ 
+[cliao25@scc-c14 PENet]$ 
+[cliao25@scc-c14 PENet]$ ls -l
+total 191
+-rw-r--r-- 1 cliao25 ece601  1427 Oct 25 11:21 README.md
+drwxr-sr-x 3 cliao25 ece601  4096 Oct 28 10:34 args
+drwxr-sr-x 3 cliao25 ece601  4096 Oct 25 11:21 cams
+drwxr-sr-x 3 cliao25 ece601  4096 Oct 25 11:21 ct
+drwxr-sr-x 4 cliao25 ece601  4096 Oct 31 22:04 ctpe
+drwxr-sr-x 3 cliao25 ece601  4096 Oct 28 11:01 data_loader
+drwxr-sr-x 3 cliao25 ece601  4096 Oct 28 11:25 datasets
+-rw-r--r-- 1 cliao25 ece601  8156 Oct 25 11:21 environment.yml
+drwxr-sr-x 3 cliao25 ece601  4096 Oct 25 11:21 evaluator
+-rw-r--r-- 1 cliao25 ece601  4967 Oct 25 11:21 get_cams.py
+-rw-r--r-- 1 cliao25 ece601   344 Oct 25 11:21 get_cams.sh
+drwxr-sr-x 2 cliao25 ece601  4096 Oct 25 11:21 img
+drwxr-sr-x 2 cliao25 ece601  4096 Oct 25 11:21 intermountain
+-rw-r--r-- 1 cliao25 ece601    59 Nov  1 21:48 log.txt
+drwxr-sr-x 3 cliao25 ece601  4096 Oct 25 11:21 logger
+drwxr-sr-x 6 cliao25 ece601  4096 Oct 25 11:21 models
+-rw-r--r-- 1 cliao25 ece601 49354 Nov  1 21:50 output.txt
+-rw-r--r-- 1 cliao25 ece601 57904 Oct 29 22:51 playing_with_data.ipynb
+-rw-r--r-- 1 cliao25 ece601  1163 Oct 29 22:57 preprocess.py
+-rw-r--r-- 1 cliao25 ece601   329 Oct 29 23:14 preprocess.qsub
+-rw-r--r-- 1 cliao25 ece601  6974 Oct 30 14:33 preprocess_npy.o557447
+-rw-r--r-- 1 cliao25 ece601  7250 Oct 25 11:21 requirements.txt
+-rw-r--r-- 1 cliao25 ece601  3591 Oct 25 11:21 run_test_intermountain.sh
+drwxr-sr-x 3 cliao25 ece601  4096 Oct 25 21:02 saver
+drwxr-sr-x 5 cliao25 ece601  4096 Oct 25 11:21 scripts
+drwxr-sr-x 2 cliao25 ece601  4096 Oct 31 00:01 snapshots
+-rw-r--r-- 1 cliao25 ece601  5669 Oct 25 11:21 test.py
+-rw-r--r-- 1 cliao25 ece601   369 Oct 26 18:13 test.sh
+-rw-r--r-- 1 cliao25 ece601  2054 Oct 28 17:36 test_from_dicom.py
+-rw-r--r-- 1 cliao25 ece601   378 Oct 26 17:51 test_from_dicom.sh
+-rw-r--r-- 1 cliao25 ece601   430 Oct 28 11:02 test_kaggle.sh
+-rw-r--r-- 1 cliao25 ece601  3272 Oct 25 11:21 train.py
+-rw-r--r-- 1 cliao25 ece601   987 Oct 25 11:21 train.sh
+-rw-r--r-- 1 cliao25 ece601  9649 Nov  1 21:39 train_cliao25.py
+-rw-r--r-- 1 cliao25 ece601  2579 Oct 28 17:00 train_experiment.ipynb
+drwxr-sr-x 5 cliao25 ece601  4096 Oct 25 11:21 train_logs
+drwxr-sr-x 5 cliao25 ece601  4096 Oct 30 22:56 util
+[cliao25@scc-c14 PENet]$ 
+[cliao25@scc-c14 PENet]$ 
+[cliao25@scc-c14 PENet]$ module load miniconda
+[cliao25@scc-c14 PENet]$ conda activate /projectnb/ece601/kaggle-pulmonary-embolism/cliao25
+(/projectnb/ece601/kaggle-pulmonary-embolism/cliao25) [cliao25@scc-c14 PENet]$ python3 train_cliao25.py 
+cuda
+/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/ckpts/penet_best.pth.tar
+Confusion matrix: [True +, False +, True -, False-]
+Before training:  [0, 64, 448, 0] loss:  2.285625983844511
+Training loss:  1.4440594277111813 Testing loss:  1.4044688877183944 Confusion:  [5, 62, 385, 60]
+Training loss:  1.230164454318583 Testing loss:  1.3677334622479975 Confusion:  [19, 49, 311, 133]
+Training loss:  1.088385236216709 Testing loss:  1.4704627904575318 Confusion:  [11, 61, 383, 57]
+Training loss:  1.2707239703740925 Testing loss:  1.3535503237508237 Confusion:  [30, 39, 248, 195]
+Training loss:  1.244342293124646 Testing loss:  1.337016955949366 Confusion:  [27, 40, 295, 150]
+^CTraceback (most recent call last):
+  File "train_cliao25.py", line 270, in <module>
+    main()
+  File "train_cliao25.py", line 263, in main
+    ave_train_loss = train(model, validation_loader, optimizer)
+  File "train_cliao25.py", line 125, in train
+    loss = loss_fn(output, target.float())
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/loss.py", line 573, in forward
+    reduction=self.reduction)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/functional.py", line 1662, in binary_cross_entropy_with_logits
+    return loss.mean()
+KeyboardInterrupt
+(/projectnb/ece601/kaggle-pulmonary-embolism/cliao25) [cliao25@scc-c14 PENet]$ python3 train_cliao25.py 
+cuda
+/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/ckpts/penet_best.pth.tar
+Confusion matrix: [True +, False +, True -, False-]
+Before training:  [0, 71, 441, 0] loss:  2.577443141490221
+Training loss:  1.4621236596722156 Testing loss:  1.443847042741254 Confusion:  [9, 61, 354, 88]
+Training loss:  1.3440967523492873 Testing loss:  1.3258668668568134 Confusion:  [31, 34, 243, 204]
+Training loss:  1.3442665673792362 Testing loss:  1.3798291217535734 Confusion:  [43, 29, 177, 263]
+Training loss:  1.3371383384801447 Testing loss:  1.3516062246635556 Confusion:  [52, 18, 142, 300]
+Training loss:  1.4031586004421115 Testing loss:  1.3335414826869965 Confusion:  [58, 11, 96, 347]
+Training loss:  1.370939995162189 Testing loss:  1.38674187194556 Confusion:  [43, 29, 159, 281]
+Training loss:  1.4512228891253471 Testing loss:  1.3377065197564662 Confusion:  [70, 0, 0, 442]
+^CTraceback (most recent call last):
+  File "train_cliao25.py", line 270, in <module>
+    main()
+  File "train_cliao25.py", line 263, in main
+    ave_train_loss = train(model, validation_loader, optimizer)
+  File "train_cliao25.py", line 123, in train
+    output = net(data.float())
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/parallel/data_parallel.py", line 121, in forward
+    return self.module(*inputs[0], **kwargs[0])
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb2/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/PENet/models/penet_classifier.py", line 88, in forward
+    x = encoder(x)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb2/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/PENet/models/layers/penet/penet_encoder.py", line 19, in forward
+    x = self.penet_blocks(x)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/container.py", line 91, in forward
+    input = module(input)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb2/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/PENet/models/layers/penet/penet_bottleneck.py", line 69, in forward
+    x = self.conv2(x)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/conv.py", line 421, in forward
+    self.padding, self.dilation, self.groups)
+KeyboardInterrupt
+^C(/projectnb/ece601/kaggle-pulmonary-embolism/cliao25) [cliao25@scc-c14 PENet]$ 

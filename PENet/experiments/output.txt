@@ -1,0 +1,947 @@
+module.encoders.2.penet_blocks.4.se_block.excite.0.weight
+module.encoders.2.penet_blocks.4.se_block.excite.0.bias
+module.encoders.2.penet_blocks.4.se_block.excite.2.weight
+module.encoders.2.penet_blocks.4.se_block.excite.2.bias
+module.encoders.2.penet_blocks.5.conv1.weight
+module.encoders.2.penet_blocks.5.norm1.weight
+module.encoders.2.penet_blocks.5.norm1.bias
+module.encoders.2.penet_blocks.5.conv2.weight
+module.encoders.2.penet_blocks.5.norm2.weight
+module.encoders.2.penet_blocks.5.norm2.bias
+module.encoders.2.penet_blocks.5.conv3.weight
+module.encoders.2.penet_blocks.5.norm3.weight
+module.encoders.2.penet_blocks.5.norm3.bias
+module.encoders.2.penet_blocks.5.se_block.excite.0.weight
+module.encoders.2.penet_blocks.5.se_block.excite.0.bias
+module.encoders.2.penet_blocks.5.se_block.excite.2.weight
+module.encoders.2.penet_blocks.5.se_block.excite.2.bias
+module.encoders.3.penet_blocks.0.down_sample.0.weight
+module.encoders.3.penet_blocks.0.down_sample.1.weight
+module.encoders.3.penet_blocks.0.down_sample.1.bias
+module.encoders.3.penet_blocks.0.conv1.weight
+module.encoders.3.penet_blocks.0.norm1.weight
+module.encoders.3.penet_blocks.0.norm1.bias
+module.encoders.3.penet_blocks.0.conv2.weight
+module.encoders.3.penet_blocks.0.norm2.weight
+module.encoders.3.penet_blocks.0.norm2.bias
+module.encoders.3.penet_blocks.0.conv3.weight
+module.encoders.3.penet_blocks.0.norm3.weight
+module.encoders.3.penet_blocks.0.norm3.bias
+module.encoders.3.penet_blocks.0.se_block.excite.0.weight
+module.encoders.3.penet_blocks.0.se_block.excite.0.bias
+module.encoders.3.penet_blocks.0.se_block.excite.2.weight
+module.encoders.3.penet_blocks.0.se_block.excite.2.bias
+module.encoders.3.penet_blocks.1.conv1.weight
+module.encoders.3.penet_blocks.1.norm1.weight
+module.encoders.3.penet_blocks.1.norm1.bias
+module.encoders.3.penet_blocks.1.conv2.weight
+module.encoders.3.penet_blocks.1.norm2.weight
+module.encoders.3.penet_blocks.1.norm2.bias
+module.encoders.3.penet_blocks.1.conv3.weight
+module.encoders.3.penet_blocks.1.norm3.weight
+module.encoders.3.penet_blocks.1.norm3.bias
+module.encoders.3.penet_blocks.1.se_block.excite.0.weight
+module.encoders.3.penet_blocks.1.se_block.excite.0.bias
+module.encoders.3.penet_blocks.1.se_block.excite.2.weight
+module.encoders.3.penet_blocks.1.se_block.excite.2.bias
+module.encoders.3.penet_blocks.2.conv1.weight
+module.encoders.3.penet_blocks.2.norm1.weight
+module.encoders.3.penet_blocks.2.norm1.bias
+module.encoders.3.penet_blocks.2.conv2.weight
+module.encoders.3.penet_blocks.2.norm2.weight
+module.encoders.3.penet_blocks.2.norm2.bias
+module.encoders.3.penet_blocks.2.conv3.weight
+module.encoders.3.penet_blocks.2.norm3.weight
+module.encoders.3.penet_blocks.2.norm3.bias
+module.encoders.3.penet_blocks.2.se_block.excite.0.weight
+module.encoders.3.penet_blocks.2.se_block.excite.0.bias
+module.encoders.3.penet_blocks.2.se_block.excite.2.weight
+module.encoders.3.penet_blocks.2.se_block.excite.2.bias
+module.classifier.fc.weight
+module.classifier.fc.bias
+(/projectnb/ece601/kaggle-pulmonary-embolism/cliao25) [cliao25@scc-c14 PENet]$ python train_cliao25.py 
+cuda
+/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/ckpts/penet_best.pth.tar
+DataParallel(
+  (module): PENetClassifier(
+    (in_conv): Sequential(
+      (0): Conv3d(3, 64, kernel_size=(7, 7, 7), stride=(1, 2, 2), padding=(3, 3, 3), bias=False)
+      (1): GroupNorm(4, 64, eps=1e-05, affine=True)
+      (2): LeakyReLU(negative_slope=0.01, inplace)
+    )
+    (max_pool): MaxPool3d(kernel_size=(3, 3, 3), stride=2, padding=1, dilation=1, ceil_mode=False)
+    (encoders): ModuleList(
+      (0): PENetEncoder(
+        (penet_blocks): Sequential(
+          (0): PENetBottleneck(
+            (down_sample): Sequential(
+              (0): Conv3d(64, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+              (1): GroupNorm(16, 256, eps=1e-05, affine=True)
+            )
+            (conv1): Conv3d(64, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm1): GroupNorm(8, 128, eps=1e-05, affine=True)
+            (relu1): LeakyReLU(negative_slope=0.01, inplace)
+            (conv2): Conv3d(128, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), groups=32, bias=False)
+            (norm2): GroupNorm(8, 128, eps=1e-05, affine=True)
+            (relu2): LeakyReLU(negative_slope=0.01, inplace)
+            (conv3): Conv3d(128, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm3): GroupNorm(16, 256, eps=1e-05, affine=True)
+            (relu3): LeakyReLU(negative_slope=0.01, inplace)
+            (se_block): SEBlock(
+              (squeeze): AdaptiveAvgPool3d(output_size=1)
+              (excite): Sequential(
+                (0): Linear(in_features=256, out_features=16, bias=True)
+                (1): LeakyReLU(negative_slope=0.01, inplace)
+                (2): Linear(in_features=16, out_features=256, bias=True)
+                (3): Sigmoid()
+              )
+            )
+          )
+          (1): PENetBottleneck(
+            (conv1): Conv3d(256, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm1): GroupNorm(8, 128, eps=1e-05, affine=True)
+            (relu1): LeakyReLU(negative_slope=0.01, inplace)
+            (conv2): Conv3d(128, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), groups=32, bias=False)
+            (norm2): GroupNorm(8, 128, eps=1e-05, affine=True)
+            (relu2): LeakyReLU(negative_slope=0.01, inplace)
+            (conv3): Conv3d(128, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm3): GroupNorm(16, 256, eps=1e-05, affine=True)
+            (relu3): LeakyReLU(negative_slope=0.01, inplace)
+            (se_block): SEBlock(
+              (squeeze): AdaptiveAvgPool3d(output_size=1)
+              (excite): Sequential(
+                (0): Linear(in_features=256, out_features=16, bias=True)
+                (1): LeakyReLU(negative_slope=0.01, inplace)
+                (2): Linear(in_features=16, out_features=256, bias=True)
+                (3): Sigmoid()
+              )
+            )
+          )
+          (2): PENetBottleneck(
+            (conv1): Conv3d(256, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm1): GroupNorm(8, 128, eps=1e-05, affine=True)
+            (relu1): LeakyReLU(negative_slope=0.01, inplace)
+            (conv2): Conv3d(128, 128, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), groups=32, bias=False)
+            (norm2): GroupNorm(8, 128, eps=1e-05, affine=True)
+            (relu2): LeakyReLU(negative_slope=0.01, inplace)
+            (conv3): Conv3d(128, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm3): GroupNorm(16, 256, eps=1e-05, affine=True)
+            (relu3): LeakyReLU(negative_slope=0.01, inplace)
+            (se_block): SEBlock(
+              (squeeze): AdaptiveAvgPool3d(output_size=1)
+              (excite): Sequential(
+                (0): Linear(in_features=256, out_features=16, bias=True)
+                (1): LeakyReLU(negative_slope=0.01, inplace)
+                (2): Linear(in_features=16, out_features=256, bias=True)
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+      )
+      (1): PENetEncoder(
+        (penet_blocks): Sequential(
+          (0): PENetBottleneck(
+            (down_sample): Sequential(
+              (0): Conv3d(256, 512, kernel_size=(1, 1, 1), stride=(2, 2, 2), bias=False)
+              (1): GroupNorm(32, 512, eps=1e-05, affine=True)
+            )
+            (conv1): Conv3d(256, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm1): GroupNorm(16, 256, eps=1e-05, affine=True)
+            (relu1): LeakyReLU(negative_slope=0.01, inplace)
+            (conv2): Conv3d(256, 256, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1), groups=32, bias=False)
+            (norm2): GroupNorm(16, 256, eps=1e-05, affine=True)
+            (relu2): LeakyReLU(negative_slope=0.01, inplace)
+            (conv3): Conv3d(256, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm3): GroupNorm(32, 512, eps=1e-05, affine=True)
+            (relu3): LeakyReLU(negative_slope=0.01, inplace)
+            (se_block): SEBlock(
+              (squeeze): AdaptiveAvgPool3d(output_size=1)
+              (excite): Sequential(
+                (0): Linear(in_features=512, out_features=32, bias=True)
+                (1): LeakyReLU(negative_slope=0.01, inplace)
+                (2): Linear(in_features=32, out_features=512, bias=True)
+                (3): Sigmoid()
+              )
+            )
+          )
+          (1): PENetBottleneck(
+            (conv1): Conv3d(512, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm1): GroupNorm(16, 256, eps=1e-05, affine=True)
+            (relu1): LeakyReLU(negative_slope=0.01, inplace)
+            (conv2): Conv3d(256, 256, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), groups=32, bias=False)
+            (norm2): GroupNorm(16, 256, eps=1e-05, affine=True)
+            (relu2): LeakyReLU(negative_slope=0.01, inplace)
+            (conv3): Conv3d(256, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm3): GroupNorm(32, 512, eps=1e-05, affine=True)
+            (relu3): LeakyReLU(negative_slope=0.01, inplace)
+            (se_block): SEBlock(
+              (squeeze): AdaptiveAvgPool3d(output_size=1)
+              (excite): Sequential(
+                (0): Linear(in_features=512, out_features=32, bias=True)
+                (1): LeakyReLU(negative_slope=0.01, inplace)
+                (2): Linear(in_features=32, out_features=512, bias=True)
+                (3): Sigmoid()
+              )
+            )
+          )
+          (2): PENetBottleneck(
+            (conv1): Conv3d(512, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm1): GroupNorm(16, 256, eps=1e-05, affine=True)
+            (relu1): LeakyReLU(negative_slope=0.01, inplace)
+            (conv2): Conv3d(256, 256, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), groups=32, bias=False)
+            (norm2): GroupNorm(16, 256, eps=1e-05, affine=True)
+            (relu2): LeakyReLU(negative_slope=0.01, inplace)
+            (conv3): Conv3d(256, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm3): GroupNorm(32, 512, eps=1e-05, affine=True)
+            (relu3): LeakyReLU(negative_slope=0.01, inplace)
+            (se_block): SEBlock(
+              (squeeze): AdaptiveAvgPool3d(output_size=1)
+              (excite): Sequential(
+                (0): Linear(in_features=512, out_features=32, bias=True)
+                (1): LeakyReLU(negative_slope=0.01, inplace)
+                (2): Linear(in_features=32, out_features=512, bias=True)
+                (3): Sigmoid()
+              )
+            )
+          )
+          (3): PENetBottleneck(
+            (conv1): Conv3d(512, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm1): GroupNorm(16, 256, eps=1e-05, affine=True)
+            (relu1): LeakyReLU(negative_slope=0.01, inplace)
+            (conv2): Conv3d(256, 256, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), groups=32, bias=False)
+            (norm2): GroupNorm(16, 256, eps=1e-05, affine=True)
+            (relu2): LeakyReLU(negative_slope=0.01, inplace)
+            (conv3): Conv3d(256, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm3): GroupNorm(32, 512, eps=1e-05, affine=True)
+            (relu3): LeakyReLU(negative_slope=0.01, inplace)
+            (se_block): SEBlock(
+              (squeeze): AdaptiveAvgPool3d(output_size=1)
+              (excite): Sequential(
+                (0): Linear(in_features=512, out_features=32, bias=True)
+                (1): LeakyReLU(negative_slope=0.01, inplace)
+                (2): Linear(in_features=32, out_features=512, bias=True)
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+      )
+      (2): PENetEncoder(
+        (penet_blocks): Sequential(
+          (0): PENetBottleneck(
+            (down_sample): Sequential(
+              (0): Conv3d(512, 1024, kernel_size=(1, 1, 1), stride=(2, 2, 2), bias=False)
+              (1): GroupNorm(64, 1024, eps=1e-05, affine=True)
+            )
+            (conv1): Conv3d(512, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm1): GroupNorm(32, 512, eps=1e-05, affine=True)
+            (relu1): LeakyReLU(negative_slope=0.01, inplace)
+            (conv2): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1), groups=32, bias=False)
+            (norm2): GroupNorm(32, 512, eps=1e-05, affine=True)
+            (relu2): LeakyReLU(negative_slope=0.01, inplace)
+            (conv3): Conv3d(512, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm3): GroupNorm(64, 1024, eps=1e-05, affine=True)
+            (relu3): LeakyReLU(negative_slope=0.01, inplace)
+            (se_block): SEBlock(
+              (squeeze): AdaptiveAvgPool3d(output_size=1)
+              (excite): Sequential(
+                (0): Linear(in_features=1024, out_features=64, bias=True)
+                (1): LeakyReLU(negative_slope=0.01, inplace)
+                (2): Linear(in_features=64, out_features=1024, bias=True)
+                (3): Sigmoid()
+              )
+            )
+          )
+          (1): PENetBottleneck(
+            (conv1): Conv3d(1024, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm1): GroupNorm(32, 512, eps=1e-05, affine=True)
+            (relu1): LeakyReLU(negative_slope=0.01, inplace)
+            (conv2): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), groups=32, bias=False)
+            (norm2): GroupNorm(32, 512, eps=1e-05, affine=True)
+            (relu2): LeakyReLU(negative_slope=0.01, inplace)
+            (conv3): Conv3d(512, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm3): GroupNorm(64, 1024, eps=1e-05, affine=True)
+            (relu3): LeakyReLU(negative_slope=0.01, inplace)
+            (se_block): SEBlock(
+              (squeeze): AdaptiveAvgPool3d(output_size=1)
+              (excite): Sequential(
+                (0): Linear(in_features=1024, out_features=64, bias=True)
+                (1): LeakyReLU(negative_slope=0.01, inplace)
+                (2): Linear(in_features=64, out_features=1024, bias=True)
+                (3): Sigmoid()
+              )
+            )
+          )
+          (2): PENetBottleneck(
+            (conv1): Conv3d(1024, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm1): GroupNorm(32, 512, eps=1e-05, affine=True)
+            (relu1): LeakyReLU(negative_slope=0.01, inplace)
+            (conv2): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), groups=32, bias=False)
+            (norm2): GroupNorm(32, 512, eps=1e-05, affine=True)
+            (relu2): LeakyReLU(negative_slope=0.01, inplace)
+            (conv3): Conv3d(512, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm3): GroupNorm(64, 1024, eps=1e-05, affine=True)
+            (relu3): LeakyReLU(negative_slope=0.01, inplace)
+            (se_block): SEBlock(
+              (squeeze): AdaptiveAvgPool3d(output_size=1)
+              (excite): Sequential(
+                (0): Linear(in_features=1024, out_features=64, bias=True)
+                (1): LeakyReLU(negative_slope=0.01, inplace)
+                (2): Linear(in_features=64, out_features=1024, bias=True)
+                (3): Sigmoid()
+              )
+            )
+          )
+          (3): PENetBottleneck(
+            (conv1): Conv3d(1024, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm1): GroupNorm(32, 512, eps=1e-05, affine=True)
+            (relu1): LeakyReLU(negative_slope=0.01, inplace)
+            (conv2): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), groups=32, bias=False)
+            (norm2): GroupNorm(32, 512, eps=1e-05, affine=True)
+            (relu2): LeakyReLU(negative_slope=0.01, inplace)
+            (conv3): Conv3d(512, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm3): GroupNorm(64, 1024, eps=1e-05, affine=True)
+            (relu3): LeakyReLU(negative_slope=0.01, inplace)
+            (se_block): SEBlock(
+              (squeeze): AdaptiveAvgPool3d(output_size=1)
+              (excite): Sequential(
+                (0): Linear(in_features=1024, out_features=64, bias=True)
+                (1): LeakyReLU(negative_slope=0.01, inplace)
+                (2): Linear(in_features=64, out_features=1024, bias=True)
+                (3): Sigmoid()
+              )
+            )
+          )
+          (4): PENetBottleneck(
+            (conv1): Conv3d(1024, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm1): GroupNorm(32, 512, eps=1e-05, affine=True)
+            (relu1): LeakyReLU(negative_slope=0.01, inplace)
+            (conv2): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), groups=32, bias=False)
+            (norm2): GroupNorm(32, 512, eps=1e-05, affine=True)
+            (relu2): LeakyReLU(negative_slope=0.01, inplace)
+            (conv3): Conv3d(512, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm3): GroupNorm(64, 1024, eps=1e-05, affine=True)
+            (relu3): LeakyReLU(negative_slope=0.01, inplace)
+            (se_block): SEBlock(
+              (squeeze): AdaptiveAvgPool3d(output_size=1)
+              (excite): Sequential(
+                (0): Linear(in_features=1024, out_features=64, bias=True)
+                (1): LeakyReLU(negative_slope=0.01, inplace)
+                (2): Linear(in_features=64, out_features=1024, bias=True)
+                (3): Sigmoid()
+              )
+            )
+          )
+          (5): PENetBottleneck(
+            (conv1): Conv3d(1024, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm1): GroupNorm(32, 512, eps=1e-05, affine=True)
+            (relu1): LeakyReLU(negative_slope=0.01, inplace)
+            (conv2): Conv3d(512, 512, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), groups=32, bias=False)
+            (norm2): GroupNorm(32, 512, eps=1e-05, affine=True)
+            (relu2): LeakyReLU(negative_slope=0.01, inplace)
+            (conv3): Conv3d(512, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm3): GroupNorm(64, 1024, eps=1e-05, affine=True)
+            (relu3): LeakyReLU(negative_slope=0.01, inplace)
+            (se_block): SEBlock(
+              (squeeze): AdaptiveAvgPool3d(output_size=1)
+              (excite): Sequential(
+                (0): Linear(in_features=1024, out_features=64, bias=True)
+                (1): LeakyReLU(negative_slope=0.01, inplace)
+                (2): Linear(in_features=64, out_features=1024, bias=True)
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+      )
+      (3): PENetEncoder(
+        (penet_blocks): Sequential(
+          (0): PENetBottleneck(
+            (down_sample): Sequential(
+              (0): Conv3d(1024, 2048, kernel_size=(1, 1, 1), stride=(2, 2, 2), bias=False)
+              (1): GroupNorm(128, 2048, eps=1e-05, affine=True)
+            )
+            (conv1): Conv3d(1024, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm1): GroupNorm(64, 1024, eps=1e-05, affine=True)
+            (relu1): LeakyReLU(negative_slope=0.01, inplace)
+            (conv2): Conv3d(1024, 1024, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1), groups=32, bias=False)
+            (norm2): GroupNorm(64, 1024, eps=1e-05, affine=True)
+            (relu2): LeakyReLU(negative_slope=0.01, inplace)
+            (conv3): Conv3d(1024, 2048, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm3): GroupNorm(128, 2048, eps=1e-05, affine=True)
+            (relu3): LeakyReLU(negative_slope=0.01, inplace)
+            (se_block): SEBlock(
+              (squeeze): AdaptiveAvgPool3d(output_size=1)
+              (excite): Sequential(
+                (0): Linear(in_features=2048, out_features=128, bias=True)
+                (1): LeakyReLU(negative_slope=0.01, inplace)
+                (2): Linear(in_features=128, out_features=2048, bias=True)
+                (3): Sigmoid()
+              )
+            )
+          )
+          (1): PENetBottleneck(
+            (conv1): Conv3d(2048, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm1): GroupNorm(64, 1024, eps=1e-05, affine=True)
+            (relu1): LeakyReLU(negative_slope=0.01, inplace)
+            (conv2): Conv3d(1024, 1024, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), groups=32, bias=False)
+            (norm2): GroupNorm(64, 1024, eps=1e-05, affine=True)
+            (relu2): LeakyReLU(negative_slope=0.01, inplace)
+            (conv3): Conv3d(1024, 2048, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm3): GroupNorm(128, 2048, eps=1e-05, affine=True)
+            (relu3): LeakyReLU(negative_slope=0.01, inplace)
+            (se_block): SEBlock(
+              (squeeze): AdaptiveAvgPool3d(output_size=1)
+              (excite): Sequential(
+                (0): Linear(in_features=2048, out_features=128, bias=True)
+                (1): LeakyReLU(negative_slope=0.01, inplace)
+                (2): Linear(in_features=128, out_features=2048, bias=True)
+                (3): Sigmoid()
+              )
+            )
+          )
+          (2): PENetBottleneck(
+            (conv1): Conv3d(2048, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm1): GroupNorm(64, 1024, eps=1e-05, affine=True)
+            (relu1): LeakyReLU(negative_slope=0.01, inplace)
+            (conv2): Conv3d(1024, 1024, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1), groups=32, bias=False)
+            (norm2): GroupNorm(64, 1024, eps=1e-05, affine=True)
+            (relu2): LeakyReLU(negative_slope=0.01, inplace)
+            (conv3): Conv3d(1024, 2048, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (norm3): GroupNorm(128, 2048, eps=1e-05, affine=True)
+            (relu3): LeakyReLU(negative_slope=0.01, inplace)
+            (se_block): SEBlock(
+              (squeeze): AdaptiveAvgPool3d(output_size=1)
+              (excite): Sequential(
+                (0): Linear(in_features=2048, out_features=128, bias=True)
+                (1): LeakyReLU(negative_slope=0.01, inplace)
+                (2): Linear(in_features=128, out_features=2048, bias=True)
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+      )
+    )
+    (classifier): GAPLinear(
+      (avg_pool): AdaptiveAvgPool3d(output_size=1)
+      (fc): Linear(in_features=2048, out_features=1, bias=True)
+    )
+  )
+)
+module.in_conv.0.weight
+module.in_conv.1.weight
+module.in_conv.1.bias
+module.encoders.0.penet_blocks.0.down_sample.0.weight
+module.encoders.0.penet_blocks.0.down_sample.1.weight
+module.encoders.0.penet_blocks.0.down_sample.1.bias
+module.encoders.0.penet_blocks.0.conv1.weight
+module.encoders.0.penet_blocks.0.norm1.weight
+module.encoders.0.penet_blocks.0.norm1.bias
+module.encoders.0.penet_blocks.0.conv2.weight
+module.encoders.0.penet_blocks.0.norm2.weight
+module.encoders.0.penet_blocks.0.norm2.bias
+module.encoders.0.penet_blocks.0.conv3.weight
+module.encoders.0.penet_blocks.0.norm3.weight
+module.encoders.0.penet_blocks.0.norm3.bias
+module.encoders.0.penet_blocks.0.se_block.excite.0.weight
+module.encoders.0.penet_blocks.0.se_block.excite.0.bias
+module.encoders.0.penet_blocks.0.se_block.excite.2.weight
+module.encoders.0.penet_blocks.0.se_block.excite.2.bias
+module.encoders.0.penet_blocks.1.conv1.weight
+module.encoders.0.penet_blocks.1.norm1.weight
+module.encoders.0.penet_blocks.1.norm1.bias
+module.encoders.0.penet_blocks.1.conv2.weight
+module.encoders.0.penet_blocks.1.norm2.weight
+module.encoders.0.penet_blocks.1.norm2.bias
+module.encoders.0.penet_blocks.1.conv3.weight
+module.encoders.0.penet_blocks.1.norm3.weight
+module.encoders.0.penet_blocks.1.norm3.bias
+module.encoders.0.penet_blocks.1.se_block.excite.0.weight
+module.encoders.0.penet_blocks.1.se_block.excite.0.bias
+module.encoders.0.penet_blocks.1.se_block.excite.2.weight
+module.encoders.0.penet_blocks.1.se_block.excite.2.bias
+module.encoders.0.penet_blocks.2.conv1.weight
+module.encoders.0.penet_blocks.2.norm1.weight
+module.encoders.0.penet_blocks.2.norm1.bias
+module.encoders.0.penet_blocks.2.conv2.weight
+module.encoders.0.penet_blocks.2.norm2.weight
+module.encoders.0.penet_blocks.2.norm2.bias
+module.encoders.0.penet_blocks.2.conv3.weight
+module.encoders.0.penet_blocks.2.norm3.weight
+module.encoders.0.penet_blocks.2.norm3.bias
+module.encoders.0.penet_blocks.2.se_block.excite.0.weight
+module.encoders.0.penet_blocks.2.se_block.excite.0.bias
+module.encoders.0.penet_blocks.2.se_block.excite.2.weight
+module.encoders.0.penet_blocks.2.se_block.excite.2.bias
+module.encoders.1.penet_blocks.0.down_sample.0.weight
+module.encoders.1.penet_blocks.0.down_sample.1.weight
+module.encoders.1.penet_blocks.0.down_sample.1.bias
+module.encoders.1.penet_blocks.0.conv1.weight
+module.encoders.1.penet_blocks.0.norm1.weight
+module.encoders.1.penet_blocks.0.norm1.bias
+module.encoders.1.penet_blocks.0.conv2.weight
+module.encoders.1.penet_blocks.0.norm2.weight
+module.encoders.1.penet_blocks.0.norm2.bias
+module.encoders.1.penet_blocks.0.conv3.weight
+module.encoders.1.penet_blocks.0.norm3.weight
+module.encoders.1.penet_blocks.0.norm3.bias
+module.encoders.1.penet_blocks.0.se_block.excite.0.weight
+module.encoders.1.penet_blocks.0.se_block.excite.0.bias
+module.encoders.1.penet_blocks.0.se_block.excite.2.weight
+module.encoders.1.penet_blocks.0.se_block.excite.2.bias
+module.encoders.1.penet_blocks.1.conv1.weight
+module.encoders.1.penet_blocks.1.norm1.weight
+module.encoders.1.penet_blocks.1.norm1.bias
+module.encoders.1.penet_blocks.1.conv2.weight
+module.encoders.1.penet_blocks.1.norm2.weight
+module.encoders.1.penet_blocks.1.norm2.bias
+module.encoders.1.penet_blocks.1.conv3.weight
+module.encoders.1.penet_blocks.1.norm3.weight
+module.encoders.1.penet_blocks.1.norm3.bias
+module.encoders.1.penet_blocks.1.se_block.excite.0.weight
+module.encoders.1.penet_blocks.1.se_block.excite.0.bias
+module.encoders.1.penet_blocks.1.se_block.excite.2.weight
+module.encoders.1.penet_blocks.1.se_block.excite.2.bias
+module.encoders.1.penet_blocks.2.conv1.weight
+module.encoders.1.penet_blocks.2.norm1.weight
+module.encoders.1.penet_blocks.2.norm1.bias
+module.encoders.1.penet_blocks.2.conv2.weight
+module.encoders.1.penet_blocks.2.norm2.weight
+module.encoders.1.penet_blocks.2.norm2.bias
+module.encoders.1.penet_blocks.2.conv3.weight
+module.encoders.1.penet_blocks.2.norm3.weight
+module.encoders.1.penet_blocks.2.norm3.bias
+module.encoders.1.penet_blocks.2.se_block.excite.0.weight
+module.encoders.1.penet_blocks.2.se_block.excite.0.bias
+module.encoders.1.penet_blocks.2.se_block.excite.2.weight
+module.encoders.1.penet_blocks.2.se_block.excite.2.bias
+module.encoders.1.penet_blocks.3.conv1.weight
+module.encoders.1.penet_blocks.3.norm1.weight
+module.encoders.1.penet_blocks.3.norm1.bias
+module.encoders.1.penet_blocks.3.conv2.weight
+module.encoders.1.penet_blocks.3.norm2.weight
+module.encoders.1.penet_blocks.3.norm2.bias
+module.encoders.1.penet_blocks.3.conv3.weight
+module.encoders.1.penet_blocks.3.norm3.weight
+module.encoders.1.penet_blocks.3.norm3.bias
+module.encoders.1.penet_blocks.3.se_block.excite.0.weight
+module.encoders.1.penet_blocks.3.se_block.excite.0.bias
+module.encoders.1.penet_blocks.3.se_block.excite.2.weight
+module.encoders.1.penet_blocks.3.se_block.excite.2.bias
+module.encoders.2.penet_blocks.0.down_sample.0.weight
+module.encoders.2.penet_blocks.0.down_sample.1.weight
+module.encoders.2.penet_blocks.0.down_sample.1.bias
+module.encoders.2.penet_blocks.0.conv1.weight
+module.encoders.2.penet_blocks.0.norm1.weight
+module.encoders.2.penet_blocks.0.norm1.bias
+module.encoders.2.penet_blocks.0.conv2.weight
+module.encoders.2.penet_blocks.0.norm2.weight
+module.encoders.2.penet_blocks.0.norm2.bias
+module.encoders.2.penet_blocks.0.conv3.weight
+module.encoders.2.penet_blocks.0.norm3.weight
+module.encoders.2.penet_blocks.0.norm3.bias
+module.encoders.2.penet_blocks.0.se_block.excite.0.weight
+module.encoders.2.penet_blocks.0.se_block.excite.0.bias
+module.encoders.2.penet_blocks.0.se_block.excite.2.weight
+module.encoders.2.penet_blocks.0.se_block.excite.2.bias
+module.encoders.2.penet_blocks.1.conv1.weight
+module.encoders.2.penet_blocks.1.norm1.weight
+module.encoders.2.penet_blocks.1.norm1.bias
+module.encoders.2.penet_blocks.1.conv2.weight
+module.encoders.2.penet_blocks.1.norm2.weight
+module.encoders.2.penet_blocks.1.norm2.bias
+module.encoders.2.penet_blocks.1.conv3.weight
+module.encoders.2.penet_blocks.1.norm3.weight
+module.encoders.2.penet_blocks.1.norm3.bias
+module.encoders.2.penet_blocks.1.se_block.excite.0.weight
+module.encoders.2.penet_blocks.1.se_block.excite.0.bias
+module.encoders.2.penet_blocks.1.se_block.excite.2.weight
+module.encoders.2.penet_blocks.1.se_block.excite.2.bias
+module.encoders.2.penet_blocks.2.conv1.weight
+module.encoders.2.penet_blocks.2.norm1.weight
+module.encoders.2.penet_blocks.2.norm1.bias
+module.encoders.2.penet_blocks.2.conv2.weight
+module.encoders.2.penet_blocks.2.norm2.weight
+module.encoders.2.penet_blocks.2.norm2.bias
+module.encoders.2.penet_blocks.2.conv3.weight
+module.encoders.2.penet_blocks.2.norm3.weight
+module.encoders.2.penet_blocks.2.norm3.bias
+module.encoders.2.penet_blocks.2.se_block.excite.0.weight
+module.encoders.2.penet_blocks.2.se_block.excite.0.bias
+module.encoders.2.penet_blocks.2.se_block.excite.2.weight
+module.encoders.2.penet_blocks.2.se_block.excite.2.bias
+module.encoders.2.penet_blocks.3.conv1.weight
+module.encoders.2.penet_blocks.3.norm1.weight
+module.encoders.2.penet_blocks.3.norm1.bias
+module.encoders.2.penet_blocks.3.conv2.weight
+module.encoders.2.penet_blocks.3.norm2.weight
+module.encoders.2.penet_blocks.3.norm2.bias
+module.encoders.2.penet_blocks.3.conv3.weight
+module.encoders.2.penet_blocks.3.norm3.weight
+module.encoders.2.penet_blocks.3.norm3.bias
+module.encoders.2.penet_blocks.3.se_block.excite.0.weight
+module.encoders.2.penet_blocks.3.se_block.excite.0.bias
+module.encoders.2.penet_blocks.3.se_block.excite.2.weight
+module.encoders.2.penet_blocks.3.se_block.excite.2.bias
+module.encoders.2.penet_blocks.4.conv1.weight
+module.encoders.2.penet_blocks.4.norm1.weight
+module.encoders.2.penet_blocks.4.norm1.bias
+module.encoders.2.penet_blocks.4.conv2.weight
+module.encoders.2.penet_blocks.4.norm2.weight
+module.encoders.2.penet_blocks.4.norm2.bias
+module.encoders.2.penet_blocks.4.conv3.weight
+module.encoders.2.penet_blocks.4.norm3.weight
+module.encoders.2.penet_blocks.4.norm3.bias
+module.encoders.2.penet_blocks.4.se_block.excite.0.weight
+module.encoders.2.penet_blocks.4.se_block.excite.0.bias
+module.encoders.2.penet_blocks.4.se_block.excite.2.weight
+module.encoders.2.penet_blocks.4.se_block.excite.2.bias
+module.encoders.2.penet_blocks.5.conv1.weight
+module.encoders.2.penet_blocks.5.norm1.weight
+module.encoders.2.penet_blocks.5.norm1.bias
+module.encoders.2.penet_blocks.5.conv2.weight
+module.encoders.2.penet_blocks.5.norm2.weight
+module.encoders.2.penet_blocks.5.norm2.bias
+module.encoders.2.penet_blocks.5.conv3.weight
+module.encoders.2.penet_blocks.5.norm3.weight
+module.encoders.2.penet_blocks.5.norm3.bias
+module.encoders.2.penet_blocks.5.se_block.excite.0.weight
+module.encoders.2.penet_blocks.5.se_block.excite.0.bias
+module.encoders.2.penet_blocks.5.se_block.excite.2.weight
+module.encoders.2.penet_blocks.5.se_block.excite.2.bias
+module.encoders.3.penet_blocks.0.down_sample.0.weight
+module.encoders.3.penet_blocks.0.down_sample.1.weight
+module.encoders.3.penet_blocks.0.down_sample.1.bias
+module.encoders.3.penet_blocks.0.conv1.weight
+module.encoders.3.penet_blocks.0.norm1.weight
+module.encoders.3.penet_blocks.0.norm1.bias
+module.encoders.3.penet_blocks.0.conv2.weight
+module.encoders.3.penet_blocks.0.norm2.weight
+module.encoders.3.penet_blocks.0.norm2.bias
+module.encoders.3.penet_blocks.0.conv3.weight
+module.encoders.3.penet_blocks.0.norm3.weight
+module.encoders.3.penet_blocks.0.norm3.bias
+module.encoders.3.penet_blocks.0.se_block.excite.0.weight
+module.encoders.3.penet_blocks.0.se_block.excite.0.bias
+module.encoders.3.penet_blocks.0.se_block.excite.2.weight
+module.encoders.3.penet_blocks.0.se_block.excite.2.bias
+module.encoders.3.penet_blocks.1.conv1.weight
+module.encoders.3.penet_blocks.1.norm1.weight
+module.encoders.3.penet_blocks.1.norm1.bias
+module.encoders.3.penet_blocks.1.conv2.weight
+module.encoders.3.penet_blocks.1.norm2.weight
+module.encoders.3.penet_blocks.1.norm2.bias
+module.encoders.3.penet_blocks.1.conv3.weight
+module.encoders.3.penet_blocks.1.norm3.weight
+module.encoders.3.penet_blocks.1.norm3.bias
+module.encoders.3.penet_blocks.1.se_block.excite.0.weight
+module.encoders.3.penet_blocks.1.se_block.excite.0.bias
+module.encoders.3.penet_blocks.1.se_block.excite.2.weight
+module.encoders.3.penet_blocks.1.se_block.excite.2.bias
+module.encoders.3.penet_blocks.2.conv1.weight
+module.encoders.3.penet_blocks.2.norm1.weight
+module.encoders.3.penet_blocks.2.norm1.bias
+module.encoders.3.penet_blocks.2.conv2.weight
+module.encoders.3.penet_blocks.2.norm2.weight
+module.encoders.3.penet_blocks.2.norm2.bias
+module.encoders.3.penet_blocks.2.conv3.weight
+module.encoders.3.penet_blocks.2.norm3.weight
+module.encoders.3.penet_blocks.2.norm3.bias
+module.encoders.3.penet_blocks.2.se_block.excite.0.weight
+module.encoders.3.penet_blocks.2.se_block.excite.0.bias
+module.encoders.3.penet_blocks.2.se_block.excite.2.weight
+module.encoders.3.penet_blocks.2.se_block.excite.2.bias
+module.classifier.fc.weight
+module.classifier.fc.bias
+(/projectnb/ece601/kaggle-pulmonary-embolism/cliao25) [cliao25@scc-c14 PENet]$ python train_cliao25.py 
+cuda
+/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/ckpts/penet_best.pth.tar
+Average loss:  1.4991481490433216
+Average loss:  1.1687003714032471
+Average loss:  1.1774797709658742
+Average loss:  1.342126433737576
+Average loss:  1.5449467888101935
+Average loss:  1.4525352399796247
+Average loss:  1.6548977042548358
+Average loss:  1.4492028187960386
+Average loss:  1.3932532272301614
+Average loss:  1.9865567907691002
+Average loss:  1.2921574860811234
+Average loss:  1.6144399652257562
+Average loss:  1.3473478499799967
+Average loss:  1.0755152544006705
+Average loss:  1.738492937758565
+Average loss:  1.2780832834541798
+Average loss:  1.4429718810133636
+Average loss:  1.3474314003251493
+Average loss:  2.0405129324644804
+Average loss:  1.6150441518984735
+Average loss:  1.5534952292218804
+Average loss:  1.3441038257442415
+Average loss:  1.5044419281184673
+Average loss:  1.5434979228302836
+Average loss:  1.346834926865995
+Average loss:  1.9102418953552842
+Average loss:  1.3664329154416919
+Average loss:  1.0518796844407916
+Average loss:  1.4690445521846414
+Average loss:  1.7999545754864812
+Average loss:  1.303888770751655
+Average loss:  1.27229143679142
+Average loss:  0.8909888155758381
+Average loss:  1.9143537459895015
+Average loss:  1.8341022739186883
+Average loss:  1.6013412876054645
+Average loss:  0.9026612807065248
+Average loss:  1.1628752937540412
+Average loss:  1.3096507797017694
+Average loss:  1.8423606399446726
+Average loss:  1.5806377287954092
+Average loss:  2.216574334539473
+Average loss:  1.7910066195763648
+Average loss:  2.0186114446260035
+Average loss:  1.8021764187142253
+Average loss:  1.2187842605635524
+^CTraceback (most recent call last):
+  File "train_cliao25.py", line 238, in <module>
+    main()
+  File "train_cliao25.py", line 234, in main
+    train(model, validation_loader, optimizer)
+  File "train_cliao25.py", line 123, in train
+    output = net(data.float())
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/parallel/data_parallel.py", line 121, in forward
+    return self.module(*inputs[0], **kwargs[0])
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb2/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/PENet/models/penet_classifier.py", line 88, in forward
+    x = encoder(x)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb2/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/PENet/models/layers/penet/penet_encoder.py", line 19, in forward
+    x = self.penet_blocks(x)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/container.py", line 91, in forward
+    input = module(input)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb2/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/PENet/models/layers/penet/penet_bottleneck.py", line 69, in forward
+    x = self.conv2(x)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/conv.py", line 421, in forward
+    self.padding, self.dilation, self.groups)
+KeyboardInterrupt
+^C
+(/projectnb/ece601/kaggle-pulmonary-embolism/cliao25) [cliao25@scc-c14 PENet]$ ^C
+(/projectnb/ece601/kaggle-pulmonary-embolism/cliao25) [cliao25@scc-c14 PENet]$ python train_cliao25.py 
+cuda
+/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/ckpts/penet_best.pth.tar
+Average loss:  1.4149594937916845
+Average loss:  1.2588969189673662
+Average loss:  1.1607235281262547
+Average loss:  1.2451713785994798
+Average loss:  1.2382220278959721
+Average loss:  1.2254694080911577
+Average loss:  1.2471679979935288
+Average loss:  1.23283495567739
+Average loss:  1.2421899032779038
+Average loss:  1.1412830888293684
+Average loss:  1.2336160147096962
+Average loss:  1.2330273624975234
+Average loss:  1.1816694317385554
+Average loss:  1.246387163642794
+Average loss:  1.2514666984789073
+Average loss:  1.2342916303314269
+Average loss:  1.187702198047191
+Average loss:  1.2265814137645066
+Average loss:  1.2164619893301278
+Average loss:  1.1978645569179207
+Average loss:  1.237713212147355
+^CTraceback (most recent call last):
+  File "train_cliao25.py", line 238, in <module>
+    main()
+  File "train_cliao25.py", line 234, in main
+    train(model, validation_loader, optimizer)
+  File "train_cliao25.py", line 125, in train
+    loss = loss_fn(output, target.float())
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/loss.py", line 573, in forward
+    reduction=self.reduction)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/functional.py", line 1662, in binary_cross_entropy_with_logits
+    return loss.mean()
+KeyboardInterrupt
+(/projectnb/ece601/kaggle-pulmonary-embolism/cliao25) [cliao25@scc-c14 PENet]$ python train_cliao25.py 
+cuda
+/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/ckpts/penet_best.pth.tar
+Average loss:  1.4717793749878183
+Average loss:  1.1794620524160564
+Average loss:  1.169793532928452
+Average loss:  1.2302525821141899
+Average loss:  1.2072483266238123
+Average loss:  1.212927644373849
+Average loss:  1.1906703342683613
+Average loss:  1.2131262295879424
+Average loss:  1.2166335335932672
+Average loss:  1.156833841232583
+Average loss:  1.2168520488776267
+Average loss:  1.3219261220656335
+Average loss:  1.2357702422887087
+Average loss:  1.149044897640124
+Average loss:  1.2262417171150446
+Average loss:  1.2146512465551496
+Average loss:  1.172628569882363
+Average loss:  1.1220540574286133
+Average loss:  1.2291967547498643
+Average loss:  1.2806096505373716
+Average loss:  1.1932007023133337
+Average loss:  1.156303325202316
+Average loss:  1.2909741601906717
+Average loss:  1.2039099498651922
+Average loss:  1.2416184740141034
+Average loss:  1.1794701791368425
+Average loss:  1.2285114503465593
+Average loss:  1.1957437111996114
+Average loss:  1.1480529769323766
+Average loss:  1.2098581085447222
+Average loss:  1.2218217882327735
+Average loss:  1.2232044083066285
+^CTraceback (most recent call last):
+  File "train_cliao25.py", line 238, in <module>
+    main()
+  File "train_cliao25.py", line 234, in main
+    train(model, validation_loader, optimizer)
+  File "train_cliao25.py", line 125, in train
+    loss = loss_fn(output, target.float())
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/loss.py", line 573, in forward
+    reduction=self.reduction)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/functional.py", line 1662, in binary_cross_entropy_with_logits
+    return loss.mean()
+KeyboardInterrupt
+^C
+(/projectnb/ece601/kaggle-pulmonary-embolism/cliao25) [cliao25@scc-c14 PENet]$ ^C
+(/projectnb/ece601/kaggle-pulmonary-embolism/cliao25) [cliao25@scc-c14 PENet]$ python train_cliao25.py 
+cuda
+/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/ckpts/penet_best.pth.tar
+tensor([1, 0, 1, 1], device='cuda:0')
+tensor([0, 0, 0, 0], device='cuda:0')
+Traceback (most recent call last):
+  File "train_cliao25.py", line 242, in <module>
+    main()
+  File "train_cliao25.py", line 219, in main
+    test(model, validation_loader)
+  File "train_cliao25.py", line 162, in test
+    total_samples += prediction.size[0]
+TypeError: 'builtin_function_or_method' object is not subscriptable
+(/projectnb/ece601/kaggle-pulmonary-embolism/cliao25) [cliao25@scc-c14 PENet]$ python train_cliao25.py 
+cuda
+/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/ckpts/penet_best.pth.tar
+tensor([1, 0, 0, 0], device='cuda:0')
+tensor([0, 0, 0, 0], device='cuda:0')
+tensor([0, 1, 1, 1], device='cuda:0', dtype=torch.uint8)
+tensor([0, 1, 1, 0], device='cuda:0')
+tensor([0, 0, 0, 0], device='cuda:0')
+tensor([1, 0, 0, 1], device='cuda:0', dtype=torch.uint8)
+tensor([0, 0, 0, 0], device='cuda:0')
+tensor([0, 0, 0, 0], device='cuda:0')
+tensor([1, 1, 1, 1], device='cuda:0', dtype=torch.uint8)
+tensor([0, 0, 0, 0], device='cuda:0')
+tensor([0, 0, 0, 0], device='cuda:0')
+tensor([1, 1, 1, 1], device='cuda:0', dtype=torch.uint8)
+tensor([0, 0, 0, 0], device='cuda:0')
+tensor([0, 0, 0, 0], device='cuda:0')
+tensor([1, 1, 1, 1], device='cuda:0', dtype=torch.uint8)
+tensor([1, 0, 0, 0], device='cuda:0')
+tensor([0, 0, 0, 0], device='cuda:0')
+tensor([0, 1, 1, 1], device='cuda:0', dtype=torch.uint8)
+tensor([0, 0, 0, 0], device='cuda:0')
+tensor([0, 0, 0, 0], device='cuda:0')
+tensor([1, 1, 1, 1], device='cuda:0', dtype=torch.uint8)
+^CTraceback (most recent call last):
+  File "train_cliao25.py", line 243, in <module>
+    main()
+  File "train_cliao25.py", line 220, in main
+    test(model, validation_loader)
+  File "train_cliao25.py", line 153, in test
+    output = net(data.float())
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/parallel/data_parallel.py", line 121, in forward
+    return self.module(*inputs[0], **kwargs[0])
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb2/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/PENet/models/penet_classifier.py", line 88, in forward
+    x = encoder(x)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb2/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/PENet/models/layers/penet/penet_encoder.py", line 19, in forward
+    x = self.penet_blocks(x)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/container.py", line 91, in forward
+    input = module(input)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb2/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/PENet/models/layers/penet/penet_bottleneck.py", line 65, in forward
+    x = self.conv1(x)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/conv.py", line 421, in forward
+    self.padding, self.dilation, self.groups)
+KeyboardInterrupt
+^C(/projectnb/ece601/kaggle-pulmonary-embolism/cliao25) [cliao25@scc-c14 PENet]$ python train_cliao25.py 
+cuda
+/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/ckpts/penet_best.pth.tar
+[0, 73, 439, 0]
+(/projectnb/ece601/kaggle-pulmonary-embolism/cliao25) [cliao25@scc-c14 PENet]$ python train_cliao25.py 
+cuda
+/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/ckpts/penet_best.pth.tar
+Traceback (most recent call last):
+  File "train_cliao25.py", line 268, in <module>
+    main()
+  File "train_cliao25.py", line 244, in main
+    confusion, ave_loss = test(model, validation_loader)
+  File "train_cliao25.py", line 162, in test
+    loss = loss_fn(output, target.float())
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/loss.py", line 573, in forward
+    reduction=self.reduction)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/functional.py", line 1646, in binary_cross_entropy_with_logits
+    raise ValueError("Target size ({}) must be the same as input size ({})".format(target.size(), input.size()))
+ValueError: Target size (torch.Size([4])) must be the same as input size (torch.Size([4, 1]))
+(/projectnb/ece601/kaggle-pulmonary-embolism/cliao25) [cliao25@scc-c14 PENet]$ python train_cliao25.py 
+cuda
+/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/ckpts/penet_best.pth.tar
+Confusion matrix: [True +, False +, True -, False-]
+Before training:  [0, 77, 435, 0] loss:  2.2430192943429574
+Training loss:  1.5486452913610265 Testing loss:  1.221583612728864 Confusion:  [18, 50, 309, 135]
+Training loss:  1.2574980861973017 Testing loss:  1.1993182031437755 Confusion:  [30, 38, 258, 186]
+Training loss:  1.1881880860310048 Testing loss:  1.2456099740229547 Confusion:  [29, 46, 293, 144]
+Training loss:  1.2585547482594848 Testing loss:  1.2536943764425814 Confusion:  [30, 44, 266, 172]
+Training loss:  1.1689363338518888 Testing loss:  1.2303415923379362 Confusion:  [18, 53, 331, 110]
+Training loss:  1.2548361558001488 Testing loss:  1.1966853835619986 Confusion:  [30, 39, 284, 159]
+^CTraceback (most recent call last):
+  File "train_cliao25.py", line 269, in <module>
+    main()
+  File "train_cliao25.py", line 262, in main
+    ave_train_loss = train(model, validation_loader, optimizer)
+  File "train_cliao25.py", line 125, in train
+    loss = loss_fn(output, target.float())
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/modules/loss.py", line 573, in forward
+    reduction=self.reduction)
+  File "/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/lib/python3.6/site-packages/torch/nn/functional.py", line 1662, in binary_cross_entropy_with_logits
+    return loss.mean()
+KeyboardInterrupt
+^C
+(/projectnb/ece601/kaggle-pulmonary-embolism/cliao25) [cliao25@scc-c14 PENet]$ ^C
+(/projectnb/ece601/kaggle-pulmonary-embolism/cliao25) [cliao25@scc-c14 PENet]$ 

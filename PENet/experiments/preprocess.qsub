@@ -1,0 +1,11 @@
+#!/bin/bash -l
+
+#$ -l h_rt=24:00:00   # Specify the hard time limit for the job
+#$ -N preprocess_npy  # Give job a name
+#$ -j y               # Merge the error and output streams into a single file
+#$ -m e 
+
+module load miniconda
+conda activate /projectnb/ece601/kaggle-pulmonary-embolism/cliao25
+python3 preprocess.py
+echo done

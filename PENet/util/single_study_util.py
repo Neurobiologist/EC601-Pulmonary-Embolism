@@ -48,7 +48,6 @@ def dicom_2_npy(input_study, series_description):
 
     return npy_volume
 
-
 def normalize(img):
     
     img = img.astype(np.float32)
@@ -56,12 +55,13 @@ def normalize(img):
     img = np.clip(img, 0., 1.) - CONTRAST_HU_MEAN
     return img
 
-
 def format_img(img):
     """reshape, normalize image and convert to tensor"""
 
+    window_size = 24
+
     num_slices = img.shape[0]
-    num_windows = num_slices - 24 + 1
+    num_windows = num_slices - window_size + 1
 
     # rescale
     interpolation=cv2.INTER_AREA
@@ -76,10 +76,47 @@ def format_img(img):
     img_normalized = normalize(img)
 
     # expand dimention for tensor
-    img_split = np.array([img_normalized[i:i+24] for i in range(num_windows)])
+    img_split = np.array([img_normalized[i:i+window_size] for i in range(num_windows)])
     img_expand = [np.expand_dims(np.expand_dims(split, axis=0), axis=0) for split in img_split]
 
     # create torch tensor
     study_windows = [torch.from_numpy(np.array(window)) for window in img_expand]
 
     return study_windows
+
+def normalize_for_preprocess(img):
+    ''' normalization for storage of image as int8 (to save space).'''
+    img = img.astype(np.float32)
+    img = (img - CONTRAST_HU_MIN) / (CONTRAST_HU_MAX - CONTRAST_HU_MIN) 
+    img = np.uint8(np.clip(img, 0., 1.)*255)
+    return img
+
+def process_from_npy(img):
+    '''
+    Convert from uint8 saved 3D npy array to float32
+    '''
+    img = img.astype(np.float32) / 255
+    img = img - CONTRAST_HU_MEAN
+
+    # crop
+    row = (img.shape[-2] - 192) // 2
+    col = (img.shape[-1] - 192) // 2
+    img = img[:,row : row + 192, col : col + 192]
+
+    return img
+
+def preprocess_img(img):
+    ''' 
+    preprocess raw DICOM for storage as np array.
+    returns Nx208x208 int8 array. where N is number of slices.
+    '''
+    num_slices = img.shape[0]
+
+    # rescale
+    interpolation=cv2.INTER_AREA
+    img = util.resize_slice_wise(img, (208,208), interpolation)
+    
+    # noramlize Hounsfield Units 
+    img_normalized = normalize_for_preprocess(img)
+
+    return img_normalized
