@@ -95,7 +95,7 @@ def test(args):
     results_label = [v['label'] for _,v in predictions.items()]
     print(roc_auc_score(results_label, results_pred))
 
-    TRAIN_CSV = '/projectnb/ece601/kaggle-pulmonary-embolism/rsna-str-pulmonary-embolism-detection/train.csv'
+    TRAIN_CSV = '/data4/rsna/train.csv'
     train_df = pd.read_csv(TRAIN_CSV)
     train_df = train_df[['SeriesInstanceUID', 'negative_exam_for_pe']]
     train_df = train_df.groupby('SeriesInstanceUID').aggregate(list)

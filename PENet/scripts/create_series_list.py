@@ -124,7 +124,7 @@ if __name__ == '__main__':
                              "raw" means write raw Hounsfield Units to numpy int16 array file.')
     parser.add_argument('--csv_path', type=str, default='/data3/CTA/annotations/annotation.csv',
                         help='Path to CSV file of annotations.')
-    parser.add_argument('--output_dir', type=str, required=True, default='/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/PENet/data/results',
+    parser.add_argument('--output_dir', type=str, required=True,
                         help='Output directory for converted studies.')
     parser.add_argument('--is_aneurysm', type=util.str_to_bool, required=True,
                         help='True of converting aneurysm studies.')

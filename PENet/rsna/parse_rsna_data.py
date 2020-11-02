@@ -72,7 +72,7 @@ def main(args):
         dcm_slices = []
         for path in dcm_paths:
             try:
-                dcm_slice = pydicom.dcmread(str(path))
+                dcm_slice = pydicom.dcmread(path)
                 pixel_array = dcm_slice.pixel_array
             except:
                 print(f"error reading dicom from {path}")
@@ -134,7 +134,7 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--split', type=str, default='test', choices=('train', 'test'),
+    parser.add_argument('--split', type=str, default='train', choices=('train', 'test'),
                         help="Indicate if parsing train or test dataset")
     args = parser.parse_args()
 

@@ -1,16 +1,15 @@
 from pathlib import Path
 
 RSNA_DIR = Path('/projectnb/ece601/kaggle-pulmonary-embolism/rsna-str-pulmonary-embolism-detection')
-WRITE_DIR = Path('/projectnb/ece601/kaggle-pulmonary-embolism/meganmp')
 TRAIN_DIR = RSNA_DIR / 'train'
 TEST_DIR = RSNA_DIR / 'test'
 
 TRAIN_CSV = RSNA_DIR / 'train.csv'
 TEST_CSV = RSNA_DIR / 'test.csv'
 
-PARSED_DIR = WRITE_DIR / 'parsed_data'
-TRAIN_PARSED_DIR = WRITE_DIR / 'train'
-TEST_PARSED_DIR = WRITE_DIR / 'test'
+PARSED_DIR = RSNA_DIR / 'parsed_data'
+TRAIN_PARSED_DIR = PARSED_DIR / 'train'
+TEST_PARSED_DIR = PARSED_DIR / 'test'
 
 TRAIN_PATHS = {
     'csv': TRAIN_CSV,
