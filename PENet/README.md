@@ -71,3 +71,5 @@ Training loss:  1.4031586004421115 Testing loss:  1.3335414826869965 Confusion: 
 Training loss:  1.370939995162189 Testing loss:  1.38674187194556 Confusion:  [43, 29, 159, 281]
 Training loss:  1.4512228891253471 Testing loss:  1.3377065197564662 Confusion:  [70, 0, 0, 442]
 ```
+
+![alt text](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/PENet/Train_Graphic.png)
