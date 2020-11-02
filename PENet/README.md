@@ -16,9 +16,20 @@ Our data will not work on the unmodified files in the PENet Github repo. Necessa
 **To run on dicom files:**
 
 1. Modify paths in <code>test_from_dicom.sh</code> to <code>input_study</code> and <code>ckpt_path</code>
-2. <code>sh test_from_dicom.sh</code>
+2. <code>sh test_from_dicom.sh</code> 
 
 Returns a probability of PE in that study. As of 10/19, we can successfully run this code on single studies.
+
+**To generate pickle file and hdf5 file from Kaggle data:**
+
+1. Modify <code>constants.py</code> in directory <code>/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/PENet/rsna</code> to indicate proper directories for data, CSV files, and results.
+2. Run <code>python parse_rsna_data.py</code> to generate <code>series_list.pkl</code> and <code>data.hdf5</code>
+
+**To test the model on Kaggle data:**
+
+1. Generate <code>series_list.pkl</code> from above instructions.
+2. Modify paths in <code>run_test_rsna.sh</code>
+3. Run <code>python test_rsna.py</code>
 
 **To generate class activation maps (CAMs):**
 
@@ -30,9 +41,9 @@ Returns a probability of PE in that study. As of 10/19, we can successfully run 
 1. Modify paths in <code>test.sh</code> to <code>data_dir</code>, <code>ckpt_pth</code>, and <code>results</code>
 2. <code>sh test.sh</code>
 
-**To train the model:**
 
-*Currently consulting with corresponding author and co-author regarding the generation of a necessary pkl file. Updates forthcoming.*
+
+
 
 ## Model Training
 
