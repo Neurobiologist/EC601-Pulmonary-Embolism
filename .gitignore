@@ -40,3 +40,4 @@ Thumbs.db
 # Project-Specific #
 ####################
 PENet/logs/
+*.cpython-36.pyc
