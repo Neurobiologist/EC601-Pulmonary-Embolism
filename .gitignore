@@ -41,4 +41,5 @@ Thumbs.db
 ####################
 PENet/logs/
 **/__pycache__/
+*.cpython-36.pyc
 PENet/data/results/
