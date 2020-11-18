@@ -6,7 +6,7 @@ exam level: 'negative_exam_for_pe', 'rv_lv_ratio_gte_1', 'rv_lv_ratio_lt_1', 'le
 
 3D CNN model: 
 Network – 3d densenet 121
-Loss – BCE
+Loss – BCE (BCEWithLogitsLoss : Sigmoid-BCELoss)
 
 densenet_train works
 still working on densenet_test, error now due to jpeg dataset in SCC-Q32 scratch automatically removed
