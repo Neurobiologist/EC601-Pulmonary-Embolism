@@ -6,7 +6,10 @@ exam level: 'negative_exam_for_pe', 'rv_lv_ratio_gte_1', 'rv_lv_ratio_lt_1', 'le
 
 3D CNN model: Using 3D densenet121
 
-Still exploring to solve some errors
+densenet_train works
+still working on densenet_test, error now due to jpeg dataset in SCC-Q32 scratch automatically removed
+
+Recommended by Chris to use npy dataset: still exploring
 
 Preprocessed Data reference: https://www.kaggle.com/vaillant/rsna-str-pe-detection-jpeg-256  
 3D Densenet121 reference:https://www.kaggle.com/boliu0/monai-3d-cnn-training/data
