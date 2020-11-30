@@ -17,8 +17,8 @@ pedataframe = pd.read_csv(train_csv)
 
 print(len(pedataframe))
 
-for file_num in range(15):
-    h5py_file = h5py.File('npy-' + str(file_num+1) + '.hdf5', "w")
+for file_num in range(8, 17):
+    h5py_file = h5py.File('/scratch/npy-' + str(file_num+1) + '.hdf5', "w")
     for idx in range(file_num * 100000, (file_num+1)*100000):
         img_name = os.path.join(train_dir,
                                 pedataframe.StudyInstanceUID[idx],
