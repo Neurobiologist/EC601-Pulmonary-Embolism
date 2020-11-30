@@ -8,7 +8,7 @@ The training record at the bottom of the notebook tells you the validation loss 
 don't look at 2D-ResNeXt-50-exp-5-LSTM.ipynb.
 
 2D Model training details
-========================
+---
 In /projectnb/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/SequenceModeling/,
 
 you will find:
