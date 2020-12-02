@@ -8,7 +8,7 @@ Our data will not work on the unmodified files in the PENet Github repo. Necessa
 
 **Set up environment:**
 1. Run <code>conda env create -f environment.yml</code>
-2. <code>export PYTHONPATH=$PYTHONPATH:/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/PENet/<code>
+2. <code>export PYTHONPATH=$PYTHONPATH:/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/PENet/</code>
 
 *N.B.: This might default to your home directory on the SCC. If so, try* <code>conda env create -f environment.yml -p \<project-dir\></code>
 
