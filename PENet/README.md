@@ -90,4 +90,23 @@ Training loss:  1.4512228891253471 Testing loss:  1.3377065197564662 Confusion: 
 
 ## Testing on Kaggle Data
 
+The purpose of this experiment is to generate baseline data based on the original PENet model published [here](https://www.nature.com/articles/s41746-020-0266-y) using
+<code>/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/ckpts/penet_best.pth.tar</code>.
+
+1. Modify <code>constants.py</code> in directory <code>/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/PENet/rsna</code> to indicate proper directories for data, CSV files, and results.
+2. Run <code>python parse_rsna_data.py</code> to generate <code>series_list.pkl</code> and <code>data.hdf5</code>
+3. Modify paths in <code>run_test_rsna.sh</code>
+4. Run <code>python test_rsna.py</code>
+
+**Results**
+
+Confusion matrix: [True +, False +, False -, True -]
+
+                  [ 1125, 989, 1198, 493 ]
+
+Accuracy: (TP+TN)/(TP+TN+FP+FN) = 67.8%
+
+Area Under ROC Curve = 0.68
+
+
 ![results](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/PENet/img/results_all_training.JPG)
