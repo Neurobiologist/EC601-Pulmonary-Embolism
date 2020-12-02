@@ -106,6 +106,10 @@ Confusion matrix: [True +, False +, False -, True -]
 
 Accuracy: (TP+TN)/(TP+TN+FP+FN) = 67.8%
 
+Precision: TP/(TP+FP) = 0.53
+
+Recall: TP/(TP+FN) = 0.48
+
 Area Under ROC Curve = 0.68
 
 
