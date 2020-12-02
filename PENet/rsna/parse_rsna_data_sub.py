@@ -13,7 +13,7 @@ import util
 
 from ct import CTPE 
 from tqdm import tqdm
-from rsna.constants import *
+from rsna.constants_sub import *
 
 
 def main(args):

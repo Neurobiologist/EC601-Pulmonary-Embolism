@@ -13,7 +13,7 @@ from scipy.ndimage.interpolation import rotate
 
 
 class CTPEDataset3d(BaseCTDataset):
-    def __init__(self, args, phase, is_training_set=True):
+    def __init__(self, args, phase, is_training_set=False):
         """
         Args:
             args: Command line arguments.
@@ -81,13 +81,14 @@ class CTPEDataset3d(BaseCTDataset):
 
     def _include_ctpe(self, pe):
         """Predicate for whether to include a series in this dataset."""
-        if pe.phase != self.phase and self.phase != 'all':
-            return False
+        #if pe.phase != self.phase and self.phase != 'all':
+            #return False
         
-        if pe.is_positive and pe.type not in self.pe_types:
-            return False
+        #if pe.is_positive and pe.type not in self.pe_types:
+            #return False
 
         return True
+
     def __len__(self):
         return len(self.window_to_series_idx)
 

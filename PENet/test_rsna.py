@@ -1,10 +1,10 @@
 import cv2
 import json
 import pickle
+import matplotlib.pyplot as plt
 import numpy as np
 import sklearn.metrics as sk_metrics
 import torch
-import torch.nn.functional as F
 import util
 import pandas as pd
 import os
@@ -28,12 +28,32 @@ def test(args):
     model = model.to(args.device)
     print ("Stage 3")
     model.eval()
+    print ('This should be false: {}'.format(model.training))
     print ("Stage 4")
     data_loader = CTDataLoader(args, phase=args.phase, is_training=False)
+    #print('data_loader={}'.format(data_loader))
+    #print('data_loader.dataset={}'.format(data_loader.dataset))
     study2slices = defaultdict(list)
     study2probs = defaultdict(list)
     study2labels = {}
     logger = TestLogger(args, len(data_loader.dataset), data_loader.dataset.pixel_dict)
+    print("Stage 5")
+    f = open('/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/train/series_list.pkl','rb')
+    data_labels = pickle.load(f)
+
+    # Create list to manually process labels
+    #with open('positive.txt') as f:
+         #pos_labels = f.readlines()
+    #pos_labels = [x.strip() for x in pos_labels]
+    ispos = [x.is_positive for x in data_labels]
+    isposidx = [x.study_num for x in data_labels]
+    label_dict = {}
+    for i in range(len(ispos)):
+        label_dict[isposidx[i]] = ispos[i]
+
+    for key in label_dict.keys():
+        print('label_dict={}\t{}'.format(key, label_dict[key]))
+    
 
     # Get model outputs, log to TensorBoard, write masks to disk window-by-window
     util.print_err('Writing model outputs to {}...'.format(args.results_dir))
@@ -41,7 +61,7 @@ def test(args):
         for i, (inputs, targets_dict) in enumerate(data_loader):
             with torch.no_grad():
                 cls_logits = model.forward(inputs.to(args.device))
-                cls_probs = F.sigmoid(cls_logits)
+                cls_probs = torch.sigmoid(cls_logits)
 
             if args.visualize_all:
                 logger.visualize(inputs, cls_logits, targets_dict=None, phase=args.phase, unique_id=i)
@@ -49,6 +69,8 @@ def test(args):
             max_probs = cls_probs.to('cpu').numpy()
             for study_num, slice_idx, prob in \
                     zip(targets_dict['study_num'], targets_dict['slice_idx'], list(max_probs)):
+                #print('targets_dict[studynum]={}'.format(targets_dict['study_num']))
+                #print('targets_dict[sliceidx]={}'.format(targets_dict['slice_idx']))
                 # Convert to standard python data types
                 study_num = study_num #.item()
                 #study_num = int(study_num)
@@ -58,13 +80,26 @@ def test(args):
                 study2slices[study_num].append(slice_idx)
                 study2probs[study_num].append(prob.item())
 
+
                 series = data_loader.get_series(study_num)
                 if study_num not in study2labels:
-                    study2labels[study_num] = int(series.is_positive)
+                    print('study_num={}'.format(study_num))
+                    print('series.is_positive={}'.format(label_dict[study_num]))
+                    study2labels[study_num] = label_dict[study_num]
+                    #if study_num in pos_labels:
+                        #print('DEBUG -------=1?-------------------')
+                        #print('POS LABEL')
+                        #print('study_num={}'.format(study_num))
+                        #study2labels[study_num] = 1
+                    #else:
+                        #print('Not in study2labels. series = {}'.format(study_num))
+                        #print('series.is_positive={}'.format(series.is_positive))
+                        #study2labels[study_num] = int(series.is_positive)
+                        #print('study2labels: {}'.format(study2labels[study_num]))
 
             progress_bar.update(inputs.size(0))
 
-    #print(study2labels)
+    print('study2labels={}'.format(study2labels))
 
     # Combine masks
     util.print_err('Combining masks...')
@@ -80,6 +115,7 @@ def test(args):
         study2slices[study_num] = slice_list
         study2probs[study_num] = prob_list
         max_prob = max(prob_list)
+        print('study={}\tmax_prob={}'.format(study_num, max_prob))
         max_probs.append(max_prob)
         label = study2labels[study_num]
         labels.append(label)
@@ -93,8 +129,9 @@ def test(args):
     results_series = [k for k,_ in predictions.items()]
     results_pred = [v['pred'] for _,v in predictions.items()]
     results_label = [v['label'] for _,v in predictions.items()]
-    print(roc_auc_score(results_label, results_pred))
+    print('roc_auc_score={}'.format(roc_auc_score(results_label, results_pred)))
 
+    # Create dataframe summary
     TRAIN_CSV = '/projectnb/ece601/kaggle-pulmonary-embolism/rsna-str-pulmonary-embolism-detection/train.csv'
     train_df = pd.read_csv(TRAIN_CSV)
     train_df = train_df[['SeriesInstanceUID', 'negative_exam_for_pe']]
@@ -109,10 +146,15 @@ def test(args):
 
     results_df = results_df.set_index('series')
     results_df = results_df.join(train_df, how='left').reset_index().rename({'index': 'series'})
+    print('roc_auc_score={}'.format(roc_auc_score(results_df['pe_label'], results_df['pred'])))
+    
+    # Calculate confusion matrix
+    results_df['interpretation'] = results_df['pred'].apply(lambda x: 0 if x < 0.5 else 1)
     print(results_df.head(10))
-    print(roc_auc_score(results_df['pe_label'], results_df['pred']))
+    tn, fp, fn, tp = confusion_matrix(results_df['pe_label'], results_df['interpretation']).ravel()
+    print('confusion_matrix: [{} {} {} {}]'.format(tp, fp, fn, tn))
 
-
+    
 def save_for_xgb(results_dir, series2probs, series2labels):
     """Write window-level and series-level features to train an XGBoost classifier.
     Args:
