@@ -85,3 +85,9 @@ Training loss:  1.4512228891253471 Testing loss:  1.3377065197564662 Confusion: 
 ```
 
 ![alt text](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/PENet/Train_Graphic.png)
+
+
+
+## Testing on Kaggle Data
+
+![results](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/PENet/img/results_all_training.JPG)
