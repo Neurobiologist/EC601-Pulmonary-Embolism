@@ -21,12 +21,19 @@ def get_cams(args):
     print('Extracting feature maps from layer named "{}"...'.format(args.target_layer))
 
     grad_cam = GradCAM(model, args.device, is_binary=True, is_3d=True)
+    print(grad_cam)
     gbp = GuidedBackPropagation(model, args.device, is_binary=True, is_3d=True)
+    print(gbp)
 
     num_generated = 0
     data_loader = CTDataLoader(args, phase=args.phase, is_training=False)
+    print(data_loader)
     study_idx_dict = {}
+    study_count = 1
     for inputs, target_dict in data_loader:
+        #print(inputs, target_dict)
+        #print('target_dict dir={}'.format(dir(target_dict)))
+        #print('\ntarget_dict[study_num]={}'.format(target_dict['study_num']))
         probs, idx = grad_cam.forward(inputs)
         grad_cam.backward(idx=idx[0])  # Just take top prediction
         cam = grad_cam.get_cam(args.target_layer)
@@ -39,8 +46,10 @@ def get_cams(args):
         
 
         print('Generating CAM...')
+        study_num = 1
         with torch.set_grad_enabled(True):
             probs, idx = grad_cam.forward(inputs)
+            print(probs, idx)
             grad_cam.backward(idx=idx[0])  # Just take top prediction
             cam = grad_cam.get_cam(args.target_layer)
 
@@ -73,9 +82,9 @@ def get_cams(args):
                 gbp_frames.append(slice_[..., None])
 
         # Write to a GIF file
-        output_path_input = os.path.join(os.path.join(args.cam_dir, '{}_{}_input_fn_intermountain.gif'.format(study_num, study_count)))
-        output_path_cam = os.path.join(args.cam_dir, '{}_{}_cam_fn_intermountain.gif'.format(study_num, study_count))
-        output_path_combined = os.path.join(args.cam_dir, '{}_{}_combined_fn_intermountain.gif'.format(study_num, study_count))
+        output_path_input = os.path.join(os.path.join(args.cam_dir, '{}_{}_input_fn.gif'.format(target_dict['study_num'], study_count)))
+        output_path_cam = os.path.join(args.cam_dir, '{}_{}_cam_fn.gif'.format(target_dict['study_num'], study_count))
+        output_path_combined = os.path.join(args.cam_dir, '{}_{}_combined_fn.gif'.format(target_dict['study_num'], study_count))
 
         print('Writing set {}/{} of CAMs to {}...'.format(num_generated + 1, args.num_cams, args.cam_dir))
 
@@ -92,6 +101,7 @@ def get_cams(args):
             gbp_clip = mpy.ImageSequenceClip(gbp_frames, fps=4)
             gbp_clip.write_gif(output_path_gcam, verbose=False)
 
+        study_count += 1
         num_generated += 1
         if num_generated == args.num_cams:
             return
@@ -103,7 +113,7 @@ if __name__ == '__main__':
     parser.parser.add_argument('--target_layer', type=str, default='module.encoders.3',
                                help='Name of target layer for extracting feature maps.')
     parser.parser.add_argument('--cam_dir', type=str, default='data/', help='Directory to write CAM outputs.')
-    parser.parser.add_argument('--num_cams', type=int, default=1, help='Number of CAMs to generate.')
+    parser.parser.add_argument('--num_cams', type=int, default=100, help='Number of CAMs to generate.')
     parser.parser.add_argument('--use_gbp', type=util.str_to_bool, default=False,
                                help='If True, use guided backprop. Else just regular CAMs.')
 
