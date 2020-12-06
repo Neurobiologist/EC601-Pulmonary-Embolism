@@ -114,3 +114,26 @@ Area Under ROC Curve = 0.68
 
 
 ![results](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/PENet/img/results_all_training.JPG)
+
+**Generate CAMs**
+
+The purpose of this experiment is to use the original PENet model model published [here](https://www.nature.com/articles/s41746-020-0266-y) using
+<code>/projectnb/ece601/kaggle-pulmonary-embolism/meganmp/ckpts/penet_best.pth.tar</code> to generate Class Activation Maps (CAMs) for the Kaggle data. These CAMs identify locations of the scan that contributed most to the classification [[1]](#1) using the method found in the PENet paper [[2]](#2).
+
+To generate CAMs:
+1. Modify paths in <code>get_cams.sh</code> to <code>data_dir</code>, <code>ckpt_pth</code>, and <code>cam_dir</code>
+2. <code>sh get_cams.sh</code>
+
+There is an example output below. The location contributing most to this classification is the brightest region on the CAM.
+
+![CAM_example](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/PENet/results/example_CAMs/%5B'00f7a878af9c'%5D_190_combined_fn.gif)
+
+There are an additional 999 examples of CAMs from CTPE scans classified as positive for PE on the SCC. 
+
+## References
+
+<a id="1">[1]</a> Zhou, B., Khosla, A., Lapedriza, A., Oliva, A., & Torralba, A. (2016). Learning deep features for discriminative localization. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 2921-2929).
+
+<a id="2">[2]</a> Huang, S. C., Kothari, T., Banerjee, I., Chute, C., Ball, R. L., Borus, N., ... & Dunnmon, J. (2020). PENet—a scalable deep-learning model for automated diagnosis of pulmonary embolism using volumetric CT imaging. npj Digital Medicine, 3(1), 1-9.
+
+
