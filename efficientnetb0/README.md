@@ -7,6 +7,8 @@ Best model path:
 /projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/efficientnetb0/model-efficientb0-40.pth  
 
 Model for LSTM when stage 1 is efficientnetb0 (1280 features):  
+Features from efficientnetb0 path:  
+/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/efficientb0_features.hdf5  
 For Image Level:  
 ![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/efficientnetb0/IMG/efficientnetb0_lstm_imagelevel.PNG)
 
