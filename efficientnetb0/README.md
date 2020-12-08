@@ -2,12 +2,18 @@ Model for efficientnetb0:
 optimizer: SGD  
 Loss function: BCEWithLogitsLoss 
 ![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/efficientnetb0/IMG/efficientnetb0.PNG)
+
 Best model path:    
 /projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/efficientnetb0/model-efficientb0-40.pth  
 
-Model for LSTM when stage 1 is efficientnetb0 (1280 features):    
+Model for LSTM when stage 1 is efficientnetb0 (1280 features):  
+![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/efficientnetb0/IMG/efficientnetb0_lstm_imagelevel.PNG)
+
+
 For Image Level:    
-/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/model-efficientb0-lstm1.pth (only trained few epoches since forgot to save)  
+/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/model-efficientb0-lstm1.pth (only trained few epoches since forgot to save)    
+![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/efficientnetb0/IMG/efficientnetb0_lstm_studylevel.PNG)
+
 For Study Level:  
 /projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/model-efficientb0-lstm2.pth
 
