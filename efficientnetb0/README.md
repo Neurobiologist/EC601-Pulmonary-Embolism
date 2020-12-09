@@ -21,7 +21,8 @@ For Study Level:
 
 Still training:  
 Model for LSTM when stage 1 is combined resnet + efficientnetb0 (2048 + 1280 = 3328 features):    
-For Image Level:    
+For Image Level:      
+![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/efficientnetb0/IMG/combined_lstm_imagelevel.PNG)
 /projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/combined_Sequencemodel/model-combined-lstm1.pth  
 For Study Level:  
 /projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/combined_Sequencemodel/model-combined-lstm2.pth
