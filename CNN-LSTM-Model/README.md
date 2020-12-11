@@ -4,6 +4,18 @@ This file contains the code and related images on CNN_LSTM Model to detect PE.
 Trained models are saved in Model file outside.  
 
 ## Pipeline
+
+We use a two stage training process as illustrated in the diagram below.
+
+Follow the following steps:
+
+1. Preprocess data into hdf5 files for fast access.
+2. Train a Stage 1 resnext model.
+3. Train a Stage 1 efficientnet model.
+4. Run both Stage 1 models to generate feature vectors. Combine feature vectors into one vector.
+5. Use combined feature vector to train Stage 2 LSTM.
+6. Test the LSTM.
+
 ![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/CNN_LSTM%20pipeline.PNG)
 
 ## Overall Strategy
