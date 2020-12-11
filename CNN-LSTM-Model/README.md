@@ -20,8 +20,8 @@ Follow the following steps:
 
 ## Overall Strategy
 
-* 2D CNN Model (Resnet, Efficientnetb0) used for feature extraction per image  
-* Combine the features and input into sequence model (lstm)  
+* 2D CNN Model (Resnext, Efficientnetb0) used for feature extraction per image.
+* Combine the features and input into sequence model (lstm).
 
 ## Datastes and Preprocessing  
 
@@ -29,6 +29,14 @@ Follow the following steps:
  dicom_image = pydicom.dcmread(img_name)  
  image = dicom_image.pixel_array
  </code>
+ 
+ To batch process data on BU SCC into HDF5 files, run:
+ 
+ ```
+ qsub Make-HDF5-Batch.qsub
+ ```
+ 
+ This will generate one HDF5 for every 100,000 samples slices.
  
  ## Stage 1 - 2D CNN Training
 
