@@ -9,20 +9,20 @@ Trained models are saved in Model file outside.
 * 2D CNN Model (Resnet, Efficientnetb0) used for feature extraction per image  
 * Combine the features and input into sequence model (lstm)  
 
-## Datastes and Preprocessing
+## Datastes and Preprocessing  
 <code>
- dicom_image = pydicom.dcmread(img_name)
+ dicom_image = pydicom.dcmread(img_name)  
  image = dicom_image.pixel_array
  </code>
  
  ## Stage 1 - 2D CNN Training
 
-**Training Resnet Model**
+**Training Resnet Model**  
 Run <code>2D-ResNeXt-50-train.ipynb</code>  
 optimizer: SGD  
 Loss function: BCEWithLogitsLoss 
 
-**Training efficientnetb0 Model**  
+**Training efficientnetb0 Model**    
 Run <code>2D-efficientnetb0-train.ipynb</code>  
 optimizer: SGD  
 Loss function: BCEWithLogitsLoss  
@@ -32,11 +32,11 @@ Best model path on SCC:
 <code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/efficientnetb0/model-efficientb0-40.pth</code>    
 
 
- ## Extract Features
+ ## Extract Features  
  1. Run <code>Feature-Vector-Generation-ResNeXt50.ipynb</code> to generate features.hdf5. Each sample contains 2048 features.  
  2. Run <code>Feature-Vector-Generation-efficientnetb0.ipynb</code> to generate features.hdf5. Each sample contains 1280 features. Features saved on SCC: <code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/efficientb0_features.hdf5</code>  
  
- ## Stage 2 - Sequence Model (LSTM) 
+ ## Stage 2 - Sequence Model (LSTM)   
 
 **LSTM Model input features from Resnet**
 Run <code>LSTM_resnext_train.ipynb</code> 
