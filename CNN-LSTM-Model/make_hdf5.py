@@ -11,20 +11,22 @@ data_dir = '/projectnb/ece601/kaggle-pulmonary-embolism/rsna-str-pulmonary-embol
 train_csv = data_dir + 'train.csv'
 train_dir = data_dir + 'train/'
 
-
-
 pedataframe = pd.read_csv(train_csv)
 
 print(len(pedataframe))
 
-for file_num in range(8, 17):
+for file_num in range(18):
     h5py_file = h5py.File('/scratch/npy-' + str(file_num+1) + '.hdf5', "w")
-    for idx in range(file_num * 100000, (file_num+1)*100000):
+    for idx in range(file_num * 100000, min((file_num+1)*100000, len(pedataframe))):
         img_name = os.path.join(train_dir,
                                 pedataframe.StudyInstanceUID[idx],
                                 pedataframe.SeriesInstanceUID[idx],
                                 pedataframe.SOPInstanceUID[idx] + '.dcm')
         dicom_image = pydicom.dcmread(img_name) 
+        
+        if idx % 10000 == 0:
+            print(idx)
+            
 
         try:
             # RuntimeError: The following handlers are available to decode the pixel ...
@@ -51,8 +53,5 @@ for file_num in range(8, 17):
         image += np.int16(intercept)
 
         h5py_file.create_dataset(pedataframe.StudyInstanceUID[idx] + '/' + pedataframe.SOPInstanceUID[idx], data=image)
-
-        if idx % 10000 == 0:
-            print(idx)
 
     h5py_file.close()

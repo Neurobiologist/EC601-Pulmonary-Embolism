@@ -8,4 +8,5 @@
 module load anaconda3
 source activate kaggle
 python3 make_hdf5.py
+python3 make_pe_positive_hdf5.py
 echo done
