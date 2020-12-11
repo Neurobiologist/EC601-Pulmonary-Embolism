@@ -66,16 +66,20 @@ optimizer: SGD
 Loss function: BCEWithLogitsLoss  
 ![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/efficientnetb0.PNG)  
 
-Best model path on SCC:    
-<code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/efficientnetb0/model-efficientb0-40.pth</code>    
-
+Best model paths on SCC:    
+Efficient Net: <code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/efficientnetb0/model-efficientb0-40.pth</code>    
+ResNeXt: <code>/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/SequenceModeling/exp-4-SGD/model-resnext-50-28.pth/code>
 
  ## Extract Features  
 
- 1. Run <code>Feature-Vector-Generation-ResNeXt50.ipynb</code> to generate features.hdf5. Each sample contains 2048 features.  
- 2. Run <code>Feature-Vector-Generation-efficientnetb0.ipynb</code> to generate features.hdf5. Each sample contains 1280 features. Features saved on SCC: <code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/efficientb0_features.hdf5</code>  
+ 1. Run <code>Feature-Vector-Generation-ResNeXt50.ipynb</code> to generate resnet_features.hdf5. Each slice is compressed to 2048 features.  
+ 2. Run <code>Feature-Vector-Generation-efficientnetb0.ipynb</code> to generate efficientnetb0_features.hdf5. Each slice is compressed to 1280 features. 
  
- ## Stage 2 - Sequence Model (LSTM)   
+ Features saved on SCC: 
+ Efficient Net: <code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/efficientb0_features.hdf5</code>  
+ ResNeXt: <code>/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/SequenceModeling/resnet_features.hdf5</code>
+ 
+ ## Stage 2 - Sequence Model (LSTM)
 
 **LSTM Model input features from Resnet**  
 Run <code>LSTM_resnext_train.ipynb</code> 
