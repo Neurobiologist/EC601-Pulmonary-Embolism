@@ -43,15 +43,10 @@ The following code is used to convert DICOM to numpy array:
  
  This will generate one HDF5 for every 100,000 samples slices.
  
+ This will genearte a separate HDF5 file for just the positive samples, since we need to use the positive samples for every epoch.
+ 
  ## Stage 1 - 2D CNN Training
 
-Trained model weights: /projectnb/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/SequenceModeling/exp-4-SGD
-
-Results from: 2D-ResNeXt-50-exp-4-SGD.ipynb
-
-The training record at the bottom of the notebook tells you the validation loss for each epoch. You can take the model with smallest validation loss from above folder on SCC.
-
-don't look at 2D-ResNeXt-50-exp-5-LSTM.ipynb.
 
 2D Model training details
 ---
