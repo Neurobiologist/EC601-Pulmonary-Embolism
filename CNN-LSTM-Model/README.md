@@ -59,6 +59,7 @@ For each training epoch, we train on 140,000 samples (70,000+, 70,000-) and vali
 Run <code>2D-ResNeXt-50-train.ipynb</code>  
 optimizer: SGD  
 Loss function: BCEWithLogitsLoss 
+![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/resnext50.PNG)  
 
 **Training efficientnetb0 Model**    
 Run <code>2D-efficientnetb0-train.ipynb</code>  
