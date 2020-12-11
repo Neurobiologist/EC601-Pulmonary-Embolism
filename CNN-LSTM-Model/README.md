@@ -45,10 +45,7 @@ The following code is used to convert DICOM to numpy array:
  
  This will genearte a separate HDF5 file for just the positive samples, since we need to use the positive samples for every epoch.
  
- ## Stage 1 - 2D CNN Training
-
-
-2D Model training details
+ ## Stage 1 - 2D Model training
 ---
 There are a total of 96,540 positive slices.
 
