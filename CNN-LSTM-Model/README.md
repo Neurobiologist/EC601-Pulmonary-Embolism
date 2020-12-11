@@ -124,3 +124,21 @@ Best model path on SCC:
 Best model path on SCC:  
 <code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/combined_Sequencemodel/model-combined-lstm2.pth</code>    
 
+
+ ## Testing Study Level PE Label
+ 
+ 1. Generate Feature vectors for testing: <code>Feature-Vector-Generation-Test.ipynb</code>
+ 2. Generate confusion matrices and ROC curve: <code>Test-EfficientNet-ResNeXt-LSTM-Results.ipynb</code>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
