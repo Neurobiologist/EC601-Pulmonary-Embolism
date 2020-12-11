@@ -70,7 +70,7 @@ Best model paths on SCC:
 
 Efficient Net: <code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/efficientnetb0/model-efficientb0-40.pth</code>    
 
-ResNeXt: <code>/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/SequenceModeling/exp-4-SGD/model-resnext-50-28.pth/code>
+ResNeXt: <code>/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/SequenceModeling/exp-4-SGD/model-resnext-50-28.pth</code>
 
  ## Extract Features  
 
