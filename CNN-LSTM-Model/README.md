@@ -1,5 +1,5 @@
 # CNN_LSTM Model
----
+
 This file contains the code and related images on CNN_LSTM Model to detect PE.  
 Trained models are saved in Model file outside.  
 
@@ -7,19 +7,18 @@ Trained models are saved in Model file outside.
 ![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/CNN_LSTM%20pipeline.PNG)
 
 ## Overall Strategy
----
+
 * 2D CNN Model (Resnet, Efficientnetb0) used for feature extraction per image  
 * Combine the features and input into sequence model (lstm)  
 
 ## Datastes and Preprocessing  
----
+
 <code>
  dicom_image = pydicom.dcmread(img_name)  
  image = dicom_image.pixel_array
  </code>
  
  ## Stage 1 - 2D CNN Training
----
 
 Trained model weights: /projectnb/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/SequenceModeling/exp-4-SGD
 
@@ -72,12 +71,12 @@ Best model path on SCC:
 
 
  ## Extract Features  
- ---
+
  1. Run <code>Feature-Vector-Generation-ResNeXt50.ipynb</code> to generate features.hdf5. Each sample contains 2048 features.  
  2. Run <code>Feature-Vector-Generation-efficientnetb0.ipynb</code> to generate features.hdf5. Each sample contains 1280 features. Features saved on SCC: <code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/efficientb0_features.hdf5</code>  
  
  ## Stage 2 - Sequence Model (LSTM)   
----
+
 **LSTM Model input features from Resnet**  
 Run <code>LSTM_resnext_train.ipynb</code> 
 
