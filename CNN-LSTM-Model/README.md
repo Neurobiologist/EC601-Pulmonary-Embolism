@@ -38,10 +38,10 @@ Best model path on SCC:
  
  ## Stage 2 - Sequence Model (LSTM)   
 
-**LSTM Model input features from Resnet**
+**LSTM Model input features from Resnet**  
 Run <code>LSTM_resnext_train.ipynb</code> 
 
-**LSTM Model input features from efficientnetb0**
+**LSTM Model input features from efficientnetb0**  
 Run <code>LSTM_efficientnetb0_train.ipynb</code>  
 <code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/efficientb0_features.hdf5</code>    
 * For Image Level:  
