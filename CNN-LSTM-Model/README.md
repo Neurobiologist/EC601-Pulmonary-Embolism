@@ -1,4 +1,5 @@
 # CNN_LSTM Model
+---
 This file contains the code and related images on CNN_LSTM Model to detect PE.  
 Trained models are saved in Model file outside.  
 
@@ -6,69 +7,19 @@ Trained models are saved in Model file outside.
 ![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/CNN_LSTM%20pipeline.PNG)
 
 ## Overall Strategy
+---
 * 2D CNN Model (Resnet, Efficientnetb0) used for feature extraction per image  
 * Combine the features and input into sequence model (lstm)  
 
 ## Datastes and Preprocessing  
+---
 <code>
  dicom_image = pydicom.dcmread(img_name)  
  image = dicom_image.pixel_array
  </code>
  
  ## Stage 1 - 2D CNN Training
-
-**Training Resnet Model**  
-Run <code>2D-ResNeXt-50-train.ipynb</code>  
-optimizer: SGD  
-Loss function: BCEWithLogitsLoss 
-
-**Training efficientnetb0 Model**    
-Run <code>2D-efficientnetb0-train.ipynb</code>  
-optimizer: SGD  
-Loss function: BCEWithLogitsLoss  
-![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/efficientnetb0.PNG)  
-
-Best model path on SCC:    
-<code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/efficientnetb0/model-efficientb0-40.pth</code>    
-
-
- ## Extract Features  
- 1. Run <code>Feature-Vector-Generation-ResNeXt50.ipynb</code> to generate features.hdf5. Each sample contains 2048 features.  
- 2. Run <code>Feature-Vector-Generation-efficientnetb0.ipynb</code> to generate features.hdf5. Each sample contains 1280 features. Features saved on SCC: <code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/efficientb0_features.hdf5</code>  
- 
- ## Stage 2 - Sequence Model (LSTM)   
-
-**LSTM Model input features from Resnet**  
-Run <code>LSTM_resnext_train.ipynb</code> 
-
-**LSTM Model input features from efficientnetb0**  
-Run <code>LSTM_efficientnetb0_train.ipynb</code>  
-<code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/efficientb0_features.hdf5</code>    
-* For Image Level:  
-![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/efficientnetb0_lstm_imagelevel.PNG)
-
-Best model path on SCC:  
-<code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/model-efficientb0-lstm1.pth</code>   
-* For Study Level:  
-![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/efficientnetb0_lstm_studylevel.PNG)
-
-Best model path on SCC:  
-<code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/model-efficientb0-lstm2.pth</code>  
-
-
-**Model for LSTM when stage 1 is combined resnet + efficientnetb0**     
-Run <code>LSTM_efficientnetb0+resnet.ipynb</code>  
-* For Image Level:      
-![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/combined_lstm_imagelevel.PNG)  
-
-Best model path on SCC:  
-<code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/combined_Sequencemodel/model-combined-lstm1.pth</code>    
-* For Study Level:    
-![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/combined_lstm_studylevel.PNG)  
-
-Best model path on SCC:  
-<code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/combined_Sequencemodel/model-combined-lstm2.pth</code>    
-
+---
 
 Trained model weights: /projectnb/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/SequenceModeling/exp-4-SGD
 
@@ -104,3 +55,57 @@ We split this into 70,000 training and 26,540 validation.
 Because we have more negative samples, we can rotate through them (not train on all the negative samples at once).
 
 For each training epoch, we train on 140,000 samples (70,000+, 70,000-) and validate on (26,540+, 26,540-).
+
+**Training Resnet Model**  
+Run <code>2D-ResNeXt-50-train.ipynb</code>  
+optimizer: SGD  
+Loss function: BCEWithLogitsLoss 
+
+**Training efficientnetb0 Model**    
+Run <code>2D-efficientnetb0-train.ipynb</code>  
+optimizer: SGD  
+Loss function: BCEWithLogitsLoss  
+![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/efficientnetb0.PNG)  
+
+Best model path on SCC:    
+<code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/efficientnetb0/model-efficientb0-40.pth</code>    
+
+
+ ## Extract Features  
+ ---
+ 1. Run <code>Feature-Vector-Generation-ResNeXt50.ipynb</code> to generate features.hdf5. Each sample contains 2048 features.  
+ 2. Run <code>Feature-Vector-Generation-efficientnetb0.ipynb</code> to generate features.hdf5. Each sample contains 1280 features. Features saved on SCC: <code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/efficientb0_features.hdf5</code>  
+ 
+ ## Stage 2 - Sequence Model (LSTM)   
+---
+**LSTM Model input features from Resnet**  
+Run <code>LSTM_resnext_train.ipynb</code> 
+
+**LSTM Model input features from efficientnetb0**  
+Run <code>LSTM_efficientnetb0_train.ipynb</code>  
+<code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/efficientb0_features.hdf5</code>    
+* For Image Level:  
+![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/efficientnetb0_lstm_imagelevel.PNG)
+
+Best model path on SCC:  
+<code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/model-efficientb0-lstm1.pth</code>   
+* For Study Level:  
+![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/efficientnetb0_lstm_studylevel.PNG)
+
+Best model path on SCC:  
+<code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/model-efficientb0-lstm2.pth</code>  
+
+
+**Model for LSTM when stage 1 is combined resnet + efficientnetb0**     
+Run <code>LSTM_efficientnetb0+resnet.ipynb</code>  
+* For Image Level:      
+![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/combined_lstm_imagelevel.PNG)  
+
+Best model path on SCC:  
+<code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/combined_Sequencemodel/model-combined-lstm1.pth</code>    
+* For Study Level:    
+![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/combined_lstm_studylevel.PNG)  
+
+Best model path on SCC:  
+<code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/combined_Sequencemodel/model-combined-lstm2.pth</code>    
+
