@@ -46,7 +46,7 @@ The following code is used to convert DICOM to numpy array:
  This will genearte a separate HDF5 file for just the positive samples, since we need to use the positive samples for every epoch.
  
  ## Stage 1 - 2D Model training
----
+ 
 There are a total of 96,540 positive slices.
 
 We split this into 70,000 training and 26,540 validation.
@@ -67,7 +67,9 @@ Loss function: BCEWithLogitsLoss
 ![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/efficientnetb0.PNG)  
 
 Best model paths on SCC:    
+
 Efficient Net: <code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/efficientnetb0/model-efficientb0-40.pth</code>    
+
 ResNeXt: <code>/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/SequenceModeling/exp-4-SGD/model-resnext-50-28.pth/code>
 
  ## Extract Features  
@@ -76,7 +78,9 @@ ResNeXt: <code>/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmona
  2. Run <code>Feature-Vector-Generation-efficientnetb0.ipynb</code> to generate efficientnetb0_features.hdf5. Each slice is compressed to 1280 features. 
  
  Features saved on SCC: 
+ 
  Efficient Net: <code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/efficientb0_features.hdf5</code>  
+ 
  ResNeXt: <code>/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/SequenceModeling/resnet_features.hdf5</code>
  
  ## Stage 2 - Sequence Model (LSTM)
