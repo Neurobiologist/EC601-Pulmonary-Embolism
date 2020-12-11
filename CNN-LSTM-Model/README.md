@@ -4,7 +4,7 @@ This file contains the code and related images on CNN_LSTM Model to detect PE.
 Trained models are saved in Model file outside.  
 
 ## Performance
-![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/tree/master/CNN-LSTM-Model/IMG)
+![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/ROC%20Curve%20for%20CNN_LSTM.png)
 
 ## Pipeline
 
