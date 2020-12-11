@@ -25,10 +25,12 @@ Follow the following steps:
 
 ## Datastes and Preprocessing  
 
-<code>
+The following code is used to convert DICOM to numpy array:
+
+```
  dicom_image = pydicom.dcmread(img_name)  
  image = dicom_image.pixel_array
- </code>
+```
  
  To batch process data on BU SCC into HDF5 files, run:
  
