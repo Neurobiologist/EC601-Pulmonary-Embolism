@@ -2,5 +2,6 @@
 This repository contains our contributions to the Kaggle competition [Pulmonary Embolism Detection](https://www.kaggle.com/c/rsna-str-pulmonary-embolism-detection).
 
 * PENet folder -- contains code and information on experiments with PENet. [Huang 2020](https://github.com/marshuang80/penet)
-* ResNeXt2D50 -- contains code and information on experiments with ResNeXt-2D-50.
-* preprocess and python_nb_preprocess -- contains code and information on preprocessing the Kaggle PE dataset.
+* CNN-LSTM-Model -- contains code and images on CNN_LSTM Model to detect PE
+* Model -- contains the trained model for CNN_LSTM Model
+* documents -- contains Data Exploration, Literature Review, Sprint #1 #2 #3 #4 #5 and poster
