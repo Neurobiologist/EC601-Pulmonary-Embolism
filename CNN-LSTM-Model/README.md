@@ -96,9 +96,20 @@ ResNeXt: <code>/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmona
 **LSTM Model input features from Resnet**  
 Run <code>LSTM_resnext_train.ipynb</code> 
 
+* For Image Level:  
+![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/resnet_lstm_imagelevel.PNG)
+
+Best model path on SCC:  
+<code>/projectnb/ece601/kaggle-pulmonary-embolism/cliao25-2/EC601-Pulmonary-Embolism/CNN-LSTM-Model/model-resnet-lstm1.pth</code>   
+* For Study Level:  
+![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/resnet_lstm_studylevel.PNG)
+
+Best model path on SCC:  
+<code>/projectnb/ece601/kaggle-pulmonary-embolism/cliao25-2/EC601-Pulmonary-Embolism/CNN-LSTM-Model/model-resnet-lstm2.pth</code>  
+
 **LSTM Model input features from efficientnetb0**  
 Run <code>LSTM_efficientnetb0_train.ipynb</code>  
-<code>/projectnb/ece601/kaggle-pulmonary-embolism/jiamingy/SequenceModeling/efficientb0_features.hdf5</code>    
+
 * For Image Level:  
 ![image](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/CNN-LSTM-Model/IMG/efficientnetb0_lstm_imagelevel.PNG)
 
