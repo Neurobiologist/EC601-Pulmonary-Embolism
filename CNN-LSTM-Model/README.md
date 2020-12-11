@@ -84,6 +84,14 @@ ResNeXt: <code>/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmona
  ResNeXt: <code>/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmonary-Embolism/SequenceModeling/resnet_features.hdf5</code>
  
  ## Stage 2 - Sequence Model (LSTM)
+ 
+ We train a total of 6 LSTMs.
+ 
+ We experimented with using features from ResNeXt and Efficient Net, or combining both. Combining both features gives better performance.
+ 
+ There are two flavors of LSTM models we train:
+  1. Image Level: Output a binary value for each slice, indicating PE positive or negative.
+  2. Study Level: Output 9 binary values per study. Each binary value is a study level attribute that can help PE diagnosis. See code for the names of each attribute.
 
 **LSTM Model input features from Resnet**  
 Run <code>LSTM_resnext_train.ipynb</code> 
