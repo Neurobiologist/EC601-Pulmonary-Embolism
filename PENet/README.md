@@ -115,6 +115,8 @@ Area Under ROC Curve = 0.68
 
 ![results](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/PENet/img/results_all_training.JPG)
 
+![ROC](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/PENet/img/ROC.jpeg)
+
 **Generate CAMs**
 
 The purpose of this experiment is to use the original PENet model model published [here](https://www.nature.com/articles/s41746-020-0266-y) using
