@@ -92,7 +92,7 @@ ResNeXt: <code>/projectnb/ece601/kaggle-pulmonary-embolism/cliao25/EC601-Pulmona
  
  There are two flavors of LSTM models we train:
   1. Image Level: Output a binary value for each slice, indicating PE positive or negative.
-  2. Study Level: Output 9 binary values per study. Each binary value is a study level attribute that can help PE diagnosis. See code for the names of each attribute.
+  2. Study Level: Output 9 binary values per study. Each binary value is a study level attribute that can help PE diagnosis or serve as a prognostic indicator. See code for the names of each attribute.
 
 **LSTM Model input features from Resnet**  
 Run <code>LSTM_resnext_train.ipynb</code> 
