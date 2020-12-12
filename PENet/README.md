@@ -126,7 +126,7 @@ To generate CAMs:
 
 There is an example output below. The location contributing most to this classification is the brightest region on the CAM.
 
-![CAM_example](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/PENet/results/example_CAMs/%5B'00f7a878af9c'%5D_190_combined_fn.gif)
+![CAM_example](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/master/PENet/results/example_CAMs/%5B'471ea159baff'%5D_50_combined_fn.gif)
 
 There are an additional 999 examples of CAMs from CTPE scans classified as positive for PE on the SCC. 
 
