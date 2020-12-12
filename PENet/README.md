@@ -102,7 +102,7 @@ The purpose of this experiment is to generate baseline data based on the origina
 
 Confusion matrix: [True +, False +, False -, True -]
 
-                  [ 1125, 989, 1198, 493 ]
+                  [ 1125, 989, 1198, 3493 ]
 
 Accuracy: (TP+TN)/(TP+TN+FP+FN) = 67.8%
 
