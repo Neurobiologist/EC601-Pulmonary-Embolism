@@ -1,0 +1,28 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block sb_admin_custom_css %}
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+{% endblock sb_admin_custom_css %}
+
+{% block sb_admin_header %}
+{% block title %}Results | CTPA Analysis{% endblock %}
+{% endblock sb_admin_header %}
+
+{% block sb_admin_breadcrumb_active %}
+<p>Patient: {{ pt.last_name }}, {{ pt.first_name }} | DOB: {{ pt.date_of_birth }} | Class Activation Map</p>
+{% endblock sb_admin_breadcrumb_active %}
+
+{% block badge %}
+{% endblock badge %}
+
+{% block sb_admin_content %}
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fas fa-table"></i>
+    <b>Algorithm Results</b> | Patient ID: {{ pt }} | <span class='result'>Probability of PE: {{ img.probability_of_PE }}</span></div>
+  <div class="card-body">
+    <img src='{% static img.scan.url %}' class='ctpa' alt='{{ pt.last_name }}, {{ pt.first_name }}: Class Activation Map'/>
+  </div>
+</div>
+{% endblock sb_admin_content %}

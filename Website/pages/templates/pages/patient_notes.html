@@ -1,0 +1,54 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block sb_admin_custom_css %}
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+{% endblock sb_admin_custom_css %}
+
+{% block sb_admin_header %}
+{% block title %}Patient Notes | CTPA Analysis{% endblock %}
+{% endblock sb_admin_header %}
+
+{% block sb_admin_breadcrumb_active %}
+<p>Patient: {{ pt.last_name }}, {{ pt.first_name }} | DOB: {{ pt.date_of_birth }} | Patient Notes</p>
+{% endblock sb_admin_breadcrumb_active %}
+
+{% block badge %}
+{% endblock badge %}
+
+{% block sb_admin_content %}
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fas fa-table"></i>
+    <b>Patient Notes</b> | Patient ID: {{ pt }}</div>
+  <div class="card-body">
+
+    {% if pt.is_overweight or pt.is_smoker or pt.was_smoker or pt.age > 60 %}
+      <p style="color:red">NOTE: Patient chart indicates risk factors for PE.</p>
+    {% endif %}
+
+    {% if pt.is_overweight %}
+      <li> <b>Patient is overweight:</b> BMI = {{ pt.bmi }}</li>
+    {% endif %}
+
+    {% if pt.is_smoker %}
+      <li> <b>Patient smokes tobacco products:</b> {{ pt.tobacco_start }} -
+        Present</li>
+    {% endif %}
+
+    {% if pt.was_smoker %}
+      <li> <b>Patient is former smoker:</b> {{ pt.tobacco_start }} -
+        {{ pt.tobacco_end }} ({{ pt.years_smoked }} years)</li>
+    {% endif %}
+
+    {% if pt.age > 60 %}
+      <li> <b>Patient is over 60:</b> {{ pt.age }} years old</li>
+    {% endif %}
+
+    {% if not pt.is_overweight and not pt.is_smoker and not pt.was_smoker and pt.age <= 60 %}
+      <li> Patient has no identifiable risk factors for PE.</li>
+    {% endif %}
+
+  </div>
+</div>
+{% endblock sb_admin_content %}
