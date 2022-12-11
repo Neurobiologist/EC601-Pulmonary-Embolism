@@ -43,3 +43,8 @@ PENet/logs/
 **/__pycache__/
 *.cpython-36.pyc
 PENet/data/results/
+*.pyc
+*~
+myvenv
+db.sqlite3
+/static
