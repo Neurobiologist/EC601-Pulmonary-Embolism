@@ -1,0 +1,106 @@
+{% extends "django_sb_admin/base.html" %}
+{% load static %}
+
+<!-- Meta -->
+{% block sb_admin_description %} Clinician interface to display results of
+pulmonary embolism detection algorithm and facilitate interpretation of
+patient CTPA data {% endblock sb_admin_description %}
+
+{% block sb_admin_author %}Megan Parsons{% endblock %}
+
+<!-- Header -->
+{% block sb_admin_header %}
+{% block title %}CTPA Analysis{% endblock %}
+{% endblock sb_admin_header %}
+
+
+{% block sb_admin_title %}
+    <title>CTPA Results</title>
+{% endblock sb_admin_title %}
+
+{% block sb_admin_custom_css %}
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static '/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static '/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static '/favicon-16x16.png' %}">
+  <link rel="manifest" href="{% static '/site.webmanifest' %}">
+{% endblock sb_admin_custom_css %}
+
+<!-- Sidebar -->
+{% block sb_admin_sidebar %}
+  <li class="nav-item active">
+    <a class="nav-link" href="{% url "dashboard" %}">
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Dashboard</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url "patient_notes" %}">
+      <i class="fas fa-fw fa-table"></i>
+      <span>Patient Notes</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url "ctpa_results" %}">
+      <i class="fas fa-fw fa-chart-area"></i>
+      <span>CTPA Results</span></a>
+  </li>
+   <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-fw fa-folder"></i>
+      <span>Navigate</span>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+      <h6 class="dropdown-header">Login Screens:</h6>
+      <a class="dropdown-item" href='{% url "login" %}'>Login</a>
+      <a class="dropdown-item" href="{% url "register" %}">Register</a>
+    </div>
+  </li>
+{% endblock sb_admin_sidebar %}
+
+<!-- Navbar -->
+{% block sb_admin_navbar_right %}
+  <!-- Navbar Search -->
+  <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+  </form>
+
+  <!-- Navbar -->
+  <ul class="navbar-nav ml-auto ml-md-0">
+    <li class="nav-item dropdown no-arrow mx-1">
+
+      <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                              {% block badge %}<span class="badge badge-danger">{% block alerts %}3+{% endblock alerts %}</span>{% endblock badge %}
+        <i class="fas fa-bell fa-fw"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+        <a class="dropdown-item" href="#">View Notification</a>
+
+      </div>
+    </li>
+    <li class="nav-item dropdown no-arrow">
+      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+        <i class="fas fa-user-circle fa-fw"></i>
+
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+        <a class="dropdown-item" href="#">Settings</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+      </div>
+    </li>
+  </ul>
+{% endblock sb_admin_navbar_right %}
+
+<!-- Breadcrumb -->
+{% block sb_admin_breadcrumb %}
+{% endblock sb_admin_breadcrumb %}
+
+{% block sb_admin_breadcrumb_active %}
+{% endblock sb_admin_breadcrumb_active %}
+
+<!-- Content -->
+{% block sb_admin_content %}
+{% endblock sb_admin_content %}
+
+<!-- Footer -->
+{% block sb_admin_copyright %}
+  <p>Copyright © 2020 Parsons, Liao, & Yu</p>
+{% endblock sb_admin_copyright %}

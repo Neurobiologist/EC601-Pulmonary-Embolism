@@ -1,0 +1,15 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block sb_admin_header %}
+  {% block title %}CTPA Analysis{% endblock %}
+{% endblock sb_admin_header %}
+
+{% block badge %}
+{% endblock badge %}
+
+{% block sb_admin_content %}
+<h1>CTPA Results</h1>
+<p>To access patient data, please log in using your insitutional credentials.</p>
+<a href='{% url 'login' %}'><button type='button'>Log In</button></a>
+{% endblock sb_admin_content %}

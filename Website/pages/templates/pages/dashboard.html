@@ -1,0 +1,106 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block sb_admin_header %}
+  {% block title %}Dashboard | CTPA Analysis{% endblock %}
+{% endblock sb_admin_header %}
+
+{% block badge %}
+{% endblock badge %}
+
+{% block sb_admin_content %}
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fas fa-table"></i>
+    <b>Patient Chart</b> | Patient ID: {{ pt }}</div>
+  <div class="card-body">
+    <div class="table-responsive">
+     <table class="table table-bordered table-hover table-striped">
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+
+          <tfoot>
+             <tbody>
+            <tr>
+              <td>First Name</td>
+              <td>{{ pt.first_name }}</td>
+            </tr>
+
+            <tr>
+              <td>Last Name</td>
+              <td>{{ pt.last_name }}</td>
+            </tr>
+
+            <tr>
+              <td>Date of Birth</td>
+              <td>{{ pt.date_of_birth }}</td>
+            </tr>
+
+            <tr>
+              <td>Sex</td>
+              <td>{{ pt.sex }}</td>
+            </tr>
+
+
+            <tr>
+              <td>Height</td>
+              <td>{{ pt.height }} cm</td>
+            </tr>
+
+            <tr>
+              <td>Weight</td>
+              <td>{{ pt.weight }} lb</td>
+            </tr>
+
+            <tr>
+              <td>Tobacco Status</td>
+              {% if pt.tobacco_status != 'Never' %}
+                <td>{{ pt.tobacco_status }}: {{ pt.tobacco_start }} - {{ pt.tobacco_end }} ({{ pt.years_smoked}} years)</td>
+              {% else %}
+                <td>{{ pt.tobacco_status }}</td>
+              {% endif %}
+            </tr>
+
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Medications -->
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fas fa-table"></i>
+      <b>Medications</b>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped" id="dataTable" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Medication</th>
+            <th>SIG (Take, Route, Frequency, Duration)</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tfoot>
+           <tbody>
+
+          {% for med in medication_list %}
+              <tr>
+                <td>{{ med.medication_name }}</td>
+                <td>{{ med.SIG }}</td>
+                <td>{{ med.status }}</td>
+              </tr>
+          {% endfor %}
+
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock sb_admin_content %}

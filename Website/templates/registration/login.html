@@ -1,0 +1,45 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block sb_admin_header %}
+  {% block title %}Login | CTPA Analysis{% endblock %}
+{% endblock sb_admin_header %}
+
+{% block badge %}
+{% endblock badge %}
+
+{% block sb_admin_breadcrumb %}
+{% endblock sb_admin_breadcrumb %}
+
+{% block sb_admin_breadcrumb_active %}
+  {% if form.errors %}
+    <p>Your username and/or password is invalid. Please try again.</p>
+  {% else %}
+    <p>Please log in to continue.</p>
+  {% endif %}
+{% endblock sb_admin_breadcrumb_active %}
+
+
+{% block sb_admin_content %}
+<body class="bg-dark">
+  <div class="container">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header">Login</div>
+      <div class="card-body">
+        <form method="post">
+          {% csrf_token %}
+          <table>
+            {{ form.as_p }}
+            <div>
+              <input class="btn btn-primary btn-block center" type="submit" value="Submit"></td>
+            </div>
+          </table>
+        </form>
+        <div class="text-center">
+          <a class="d-block small mt-3" href="{% url "register" %}">Register an Account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock sb_admin_content %}

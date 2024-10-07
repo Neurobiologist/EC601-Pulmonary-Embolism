@@ -1,7 +1,14 @@
-from django.urls import include, path
-from .views import HomePageView
+from django.urls import path, include
+from . import views as v
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
-    path('', HomePageView.as_view(), name='home'),
-    path('django-sb-admin/', include('django_sb_admin.urls')),
+    path('', v.index, name='index'),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path('register/', v.register, name='register'),
+    path('success/', v.success, name='success'),
+    path('dashboard/', v.dashboard, name='dashboard'),
+    path('patient_notes/', v.patient_notes, name='patient_notes'),
+    path('ctpa_results/', v.ctpa_results, name='ctpa_results'),
 ]
