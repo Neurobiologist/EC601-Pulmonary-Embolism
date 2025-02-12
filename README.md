@@ -6,7 +6,7 @@ Folder | Contents
 **CNN-LSTM-Model** | Code and images on CNN_LSTM Model to detect PE
 **Model** | Trained model for CNN_LSTM Model
 **PENet** | Code and information on experiments with [PENet](https://github.com/marshuang80/penet) [[1]](#1)
-**Website** | Code for the physician interface
+**Website** | Code for the physician interface and [link to website](https://github.com/Neurobiologist/EC601-Pulmonary-Embolism/blob/0b3ae651ed5a85c06868be5e1c6a05208e7a54c5/Website/README.md)
 **Documents** | Data Exploration, Literature Review, Sprint #1 #2 #3 #4 #5 and Poster
 
 ## Development of a Deep Learning Model to Diagnose Pulmonary Embolism
